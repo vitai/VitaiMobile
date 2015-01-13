@@ -1,0 +1,37 @@
+{
+  "ProjectName": "Upa Mobile",
+  "ProjectGuid": "a7a57599-00c3-4851-8a51-da07faabfaa5",
+  "projectVersion": 1,
+  "AppIdentifier": "com.telerik.UpaMobile",
+  "DisplayName": "Upa Mobile",
+  "Author": "",
+  "Description": "",
+  "BundleVersion": "1.0",
+  "AndroidVersionCode": "1",
+  "iOSDeviceFamily": [
+    "1",
+    "2"
+  ],
+  "iOSBackgroundMode": [],
+  "ProjectTypeGuids": "{070BCB52-5A75-4F8C-A973-144AF0EAFCC9}",
+  "FrameworkVersion": "3.5.0",
+  "AndroidPermissions": [],
+  "DeviceOrientations": [
+    "Portrait",
+    "Landscape"
+  ],
+  "AndroidHardwareAcceleration": "false",
+  "iOSStatusBarStyle": "Default",
+  "Framework": "Cordova",
+  "WP8TileTitle": "",
+  "WP8Publisher": "",
+  "WP8Capabilities": [],
+  "WP8Requirements": [],
+  "WP8PublisherID": "{5c99d396-6813-4dab-b82e-7f9d39ef3573}",
+  "WP8ProductID": "{a5a52487-6b9e-42a8-b6ba-b7b09beb5ac3}",
+  "WP8SupportedResolutions": [
+    "ID_RESOLUTION_WVGA",
+    "ID_RESOLUTION_WXGA",
+    "ID_RESOLUTION_HD720P"
+  ]
+}
