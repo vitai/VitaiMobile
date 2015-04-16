@@ -72,7 +72,8 @@
         },
         onBeforeShowView: function(e)
         {
-            this.dataSource.transport.options.read.url =app.unidadeUrl + "/ws/relatorio?q=3&setorId=" + app.unidadeCorrente.ID;
+            var s = app.unidadeUrl + "/ws/relatorio?q=3&setorId=" + app.unidadeCorrente.CODIGO;
+            this.dataSource.transport.options.read.url = s;
             this.set("descricaoUnidade", app.unidadeCorrente.DESCRICAO);
             this.dataSource.read()
         }
