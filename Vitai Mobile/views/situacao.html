@@ -1,0 +1,96 @@
+<div   data-role="view"  data-title="Situação" data-layout="main"  data-model="app.situacaoService.viewModel" data-bind="events:{beforeShow:onBeforeShowView, init:onInit}"  data-init="mobileListViewPullToRefresh" >
+     
+    <div data-role="header">
+      <div data-role="navbar">
+          <div >
+              <a class="nav-button" data-role="backbutton" data-align="left" data-icon="home"></a>
+              
+              <span data-role="view-title" style="line-height:1.8em"></span>
+              <a data-role="button" data-align="right" data-icon="refresh" data-bind="click: onUpdate" ></a>
+              
+          </div>
+      </div>
+    </div>    
+    <table style="width:100%; background-color:white">
+        <tr>
+            <td style="width:20%" >
+              <div class="logo-riosaudedefasacivil" >
+                </div>
+            </td> 
+            <td style="width:80%; text-align:center" ><h3><div data-bind="html: descricaoUnidade">
+                
+                </div> 
+                </h3>
+    <span data-bind="text: dataAtualizacao" ></span>                
+            </td>
+        </tr>
+    </table>
+    
+    <ul id="uiSituacao" data-auto-bind="false"  data-role="listview" data-style="inset" data-template="contactsTemplate" data-header-template="headerTemplate" data-type="group" data-bind="source: dataSource, events:{dataBound: onListDataboud}"></ul>
+</div>
+
+<div data-role="modalview" id="modalview-help" style="width: 90%;">
+
+            <div class="helpIcon">
+            
+        </div>
+
+    <div class="btnContent">
+        <a data-role="button" onclick="closeHelp();">Fechar</a>
+    </div> 
+    <div id="modalContent">
+        
+    </div>
+    
+</div>
+
+
+
+<script type="text/x-kendo-template" id="headerTemplate">
+
+    
+    <div data-id="${value}"  class="helpIcon" onclick="showHelp(${value})" >
+    
+    </div><h2 class="listHeader" >${value}</h2>
+    
+</script>
+
+
+<script type="text/x-kendo-template" id="contactsTemplate">
+
+     #if(data.LINKTO && data.VALOR > 0){#
+     
+         
+         <a href='views/consultorioView.html?risco=#:data.DESCRICAO#&ordem=#:data.ORDEM#' data-role="list-view-link" style="float:left; width:100%">
+         <div style="float:left">#: data.DESCRICAO #:</div> <div style="float:right; margin-right:30px"><b>#: data.VALOR #</b></div>
+         </a>
+     
+     #}else if(data.LINKTO && data.VALOR.substring(0,1) > 0){#
+
+        <a href='views/observacaoView.html?secao=#:data.CHAVE#&nmsecao=#:data.DESCRICAO#' data-role="list-view-link" style="float:left; width:100%">
+         <div style="float:left">#: data.DESCRICAO #:</div> <div style="float:right; margin-right:30px"><b>#: data.VALOR #</b></div>
+         </a>
+     
+     #}else{#
+     
+         <div class="semLink"><div style="float:left" >#: data.DESCRICAO #:</div> <div style="float:right;"><b>#: data.VALOR #</b></div></div>
+     #}#
+      
+     
+</script>
+
+<script>
+    function redirectBack()
+    {
+        app.situacaoService.viewModel.dataSource.read();
+    }
+    function showHelp(id)
+    {
+        $("#modalContent").html(app.situacaoService.viewModel.observacoes[id-1]);
+        $("#modalview-help").data("kendoMobileModalView").open();
+    }
+    function closeHelp()
+    {
+        $("#modalview-help").data("kendoMobileModalView").close();
+    }
+</script>

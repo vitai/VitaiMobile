@@ -1,0 +1,40 @@
+<div   data-role="view" data-title="Observação" data-layout="main"
+     data-model="app.observacaoViewService.viewModel"   data-bind="events: { show: onViewShow }"  >
+     
+    <div data-role="header">
+      <div data-role="navbar">
+          <div >
+              <a class="nav-button" data-role="backbutton" data-align="left">Voltar</a>
+              <span data-role="view-title" style="line-height:1.8em"></span>
+          </div>
+      </div>
+    </div>    
+    <table style="width:100%; background-color:white">
+        <tr>
+            <td style="width:20%" >
+              <div class="logo-riosaudedefasacivil" >
+                </div>
+            </td> 
+            <td style="width:80%; text-align:center" ><h3>
+                <div data-bind="html: descricaoUnidade">
+                
+                </div> </h3>
+            </td>
+        </tr>
+    </table>
+    <h4 class="tituloListas">
+        <span data-bind="html: titulo"></span>
+    </h4>
+    <ul data-role="listview" data-style="inset" data-template="observacaoTemplate"  data-bind="source: dataSource"></ul>
+
+</div>
+<script type="text/x-kendo-template" id="observacaoTemplate">
+<div style="font-weight:bold">#: data.NMCIDADAO #</div> 
+<div>
+    <div style="display:inline">Sexo:</div><div style="display:inline">#: data.SEXO #</div>
+    <div style="display:inline"> - Idade:</div>  <div style="display:inline">#: data.IDADE #</div> 
+    <!--<div style="display:inline"> - Entrada:</div>  <div style="display:inline">#: data.BOE_DATAENTRADA #</div> -->
+</div>
+<!--<div> <div style="display:inline">#: data.DIAGNOSTICO #</div> </div>-->
+
+</script>

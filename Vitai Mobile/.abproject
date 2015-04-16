@@ -1,11 +1,11 @@
 {
-  "ProjectName": "Upa Mobile",
+  "ProjectName": "Vitai Mobile",
   "ProjectGuid": "a7a57599-00c3-4851-8a51-da07faabfaa5",
   "projectVersion": 1,
-  "AppIdentifier": "com.telerik.UpaMobile",
-  "DisplayName": "Upa Mobile",
+  "AppIdentifier": "br.com.viati.VitaiMobile",
+  "DisplayName": "Vitai Mobile",
   "Author": "",
-  "Description": "",
+  "Description": "Vitai Mobile",
   "BundleVersion": "1.0",
   "AndroidVersionCode": "1",
   "iOSDeviceFamily": [
@@ -33,5 +33,7 @@
     "ID_RESOLUTION_WVGA",
     "ID_RESOLUTION_WXGA",
     "ID_RESOLUTION_HD720P"
-  ]
+  ],
+  "WP8WindowsPublisherName": "CN=Telerik",
+  "WP8PackageIdentityName": "1234Telerik.com.telerik.UpaMobile"
 }

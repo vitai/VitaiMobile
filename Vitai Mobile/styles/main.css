@@ -1,0 +1,154 @@
+.km-drawer-button:before, .km-drawer-button:after  { content: "\E077"; }
+
+.km-flat, .km-content { background: #edf3f6 !important;}
+
+.logo-image {
+    background-image: url(../styles/images/logoGeral.png);
+    background-repeat: no-repeat;
+    width: 319px;
+    height: 110px;
+    display: block;
+    margin: 0px auto;
+}
+
+.logo-cliente {
+    background-image: url(../styles/images/logomarcas.png);
+    background-repeat: no-repeat;
+    background-position: 0px;
+    width: 180px;
+    height: 110px;
+}
+
+.logo-riosaudedefasacivil
+{
+    background-image: url("../styles/images/riosaude.png");
+    background-repeat: no-repeat;
+    height: 76px;
+    width: 100px;
+}
+
+.ti-med-image {
+    background-image: url(../styles/images/timed.png);
+    background-repeat: no-repeat;
+    display: block;
+    margin: 0 auto;    
+    height: 50px;
+    margin-top: 20px;
+
+}
+.ti-med-image-container
+{
+    text-align:center;
+    width: 100%;
+    float:left;
+}
+
+.loginContainer
+{
+    padding: 10px;
+}
+
+.loginFields
+{
+    margin-top:5px;
+    margin-bottom:10px;
+}
+
+.loginFields li
+{
+    line-height:30px;
+}
+
+.titulo
+{
+    text-align:center;
+    color: blue;
+}
+
+.button
+{
+    background-color:#88bacf;
+    
+}
+
+.listHeader
+{
+    font-size:10pt;
+    margin-top:-5px;
+    margin-bottom:0px;
+    
+}
+
+#uiSituacao .km-list>li
+{
+    margin:0px;
+    padding: .5em 0 .5em .5em ;
+    
+}
+#uiSituacao .km-listview-link
+{
+    margin:0px;
+    padding: 0px ;
+}
+
+#uiSituacao .semLink
+{
+    margin:0px;
+    padding-right: 2em;
+    float:left;
+    width:100%;
+}
+
+
+.helpIcon
+{
+    background-image: url(../styles/images/help_icon.gif);
+    background-repeat: no-repeat;
+    display: none    ;
+    float:left;
+    margin: 0 auto;    
+    height: 20px;
+    width:20px;
+   
+}
+
+#modalview-help
+{
+    height:200px;
+}
+
+#modalview-help #modalContent
+{
+    padding:5px;
+}
+
+#modalview-help .btnContent
+{
+    padding: 2px;
+    width:100%;
+    text-align:right;
+    border-bottom: 1px solid gray;
+        
+}
+
+
+.divRisco20px
+{
+	height: 20px;
+	width: 20px;
+}
+.circle {
+
+      border-radius: 50%;
+
+      display: inline-block;
+
+}
+
+.tituloListas div
+{
+    display: inline-block;
+    margin-right: 10px;
+    line-height: 20px;
+    vertical-align: middle;
+}

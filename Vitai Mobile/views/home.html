@@ -1,0 +1,52 @@
+<div id="divHomeView" data-role="view" data-title="Situação" data-layout="main" data-model="APP.models.home"   data-init="initPullToRefreshScroller" >
+     
+    <div data-role="header">
+      <div data-role="navbar">
+          <div >
+              <span data-role="view-title" style="line-height:1.8em"></span>
+              <a data-role="button" data-align="right" data-icon="refresh" data-bind="events: {click: onAtualizarClick}"></a>
+              <!--<div data-role="app-status" style="font-size:9pt;line-height:1em; margin-top:-5px">Online</div>-->
+          </div>
+      </div>
+     
+        <!--<div >
+            <div class="logo-cliente" ></div>    
+        </div>-->        
+    </div>    
+    <table style="width:100%">
+        <tr>
+            <td style="width:20%" >
+              <div class="logo-riosaudedefasacivil" >
+
+                </div>
+            </td>
+            <td style="width:80%; text-align:center" ><h3>
+                CER - BARRA</h3></td>
+        </tr>
+    </table>
+  <h4 style="text-align:center; font-weight:bold">PACIENTES</h4>  
+  <ul data-role="listview" data-style="inset" data-template="contactsTemplate" data-bind="source: dsPaciente"></ul>
+    <h4 style="text-align:center; font-weight:bold">PRESCRIÇÕES</h4>
+  <ul data-role="listview" data-style="inset" data-template="prescricaoTemplate" data-bind="source: dsPrescricao"></ul>
+    <h4 style="text-align:center; font-weight:bold">LEITOS</h4>
+  <ul data-role="listview" data-style="inset" data-template="prescricaoTemplate" data-bind="source: dsLeito"></ul>
+    
+    <span data-bind="text: dataAtualizacao"></span>
+        <br/>
+    <div id="pull-cat"></div>
+    <h2 id="pull-to-refresh-clock"></h2>
+</div>
+
+
+<!-- this is the template used by the listview. template items are automatically
+     wrapped in an <li> by Kendo UI Mobile -->
+<script type="text/x-kendo-template" id="contactsTemplate">
+  <div style="float:left">#: data.descricao #:</div> <div style="float:right"><b>#: data.valor #</b></div>
+</script>
+<script type="text/x-kendo-template" id="prescricaoTemplate">
+  <div style="float:left">#: data.descricao #:</div> <div style="float:right"><b>#: data.valor #</b></div>
+</script>
+<script type="text/x-kendo-template" id="dataTemplate">
+  <div style="float:left">Ultima Atualização:</div> <div style="float:right"><b>#: data #</b></div>
+</script>
+

@@ -1,0 +1,26 @@
+<div   data-role="view"  data-title="Unidades" data-layout="main" data-model="app.unidadesService.viewModel">
+     
+    <div data-role="header">
+      <div data-role="navbar">
+          <div >
+              <span data-role="view-title" style="line-height:1.8em"></span>
+          </div>
+      </div>
+    </div>    
+    <table style="width:100%; background-color:white">
+        <tr>
+            <td style="width:20%" >
+              <div class="logo-riosaudedefasacivil" >
+                </div>
+            </td> 
+        </tr>
+    </table>
+    
+    <ul id="uiSituacao" data-role="listview" data-style="inset" data-template="unidadesTemplate" data-bind="source: dataSource, events:{click: onListViewChanged }"></ul>
+</div>
+
+<script type="text/x-kendo-template" id="unidadesTemplate">
+         <!--<a href='views/situacao.html?unidade=#:data.CODIGO#' data-role="list-view-link" >-->
+             <div >#:data.DESCRICAO#</div>
+         <!--</a>-->
+</script>
