@@ -4,6 +4,7 @@
    
 
     UnidadesViewModel = kendo.data.ObservableObject.extend({
+        logo:app.idglobal,
         onViewShow: function(e)
         {
             var that = this;
@@ -27,7 +28,5 @@
     app.unidadesService = {
         viewModel: new UnidadesViewModel()
     };
-    
-    
-    
+
 })(window);

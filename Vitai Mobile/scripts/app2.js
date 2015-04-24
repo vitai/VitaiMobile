@@ -8,7 +8,10 @@
         };
     
     app.unidadeUrl = "http://177.124.207.146:8080/sits";
-
+    app.permissoes = null;
+    app.currentViewModel = null;
+    app.idglobal = "logo-riosaudedefasacivil";
+    app.idglobal2 = "logo-abbc";
     
     document.addEventListener("deviceready", function () {
         navigator.splashscreen.hide();
@@ -17,10 +20,8 @@
                     app.currentViewModel.refresh();
             }, false);
 
-        
-
         app.unidadeCorrente = null;
-        app.currentViewModel=null;
+        app.currentViewModel = null;
         
         app.changeSkin = function (e) {
             var mobileSkin = "";

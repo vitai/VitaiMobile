@@ -2,11 +2,11 @@
   "ProjectName": "Vitai Mobile",
   "ProjectGuid": "a7a57599-00c3-4851-8a51-da07faabfaa5",
   "projectVersion": 1,
-  "AppIdentifier": "br.com.viati.VitaiMobile",
-  "DisplayName": "Vitai Mobile",
+  "AppIdentifier": "br.com.vitai.VitaiAgileApp",
+  "DisplayName": "Vitai Agile",
   "Author": "",
-  "Description": "Vitai Mobile",
-  "BundleVersion": "1.0",
+  "Description": "Vitai Agile",
+  "BundleVersion": "1.2",
   "AndroidVersionCode": "1",
   "iOSDeviceFamily": [
     "1",
@@ -15,7 +15,9 @@
   "iOSBackgroundMode": [],
   "ProjectTypeGuids": "{070BCB52-5A75-4F8C-A973-144AF0EAFCC9}",
   "FrameworkVersion": "3.5.0",
-  "AndroidPermissions": [],
+  "AndroidPermissions": [
+    "android.permission.INTERNET"
+  ],
   "DeviceOrientations": [
     "Portrait",
     "Landscape"
