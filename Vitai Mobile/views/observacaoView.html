@@ -1,5 +1,6 @@
 <div   data-role="view" data-title="Observação" data-layout="main"
-     data-model="app.observacaoViewService.viewModel"   data-bind="events: { show: onViewShow }"  >
+     data-model="app.observacaoViewService.viewModel"   
+    data-bind="events: {show: onViewShow }"  >
      
     <div data-role="header">
       <div data-role="navbar">
@@ -12,7 +13,7 @@
     <table style="width:100%; background-color:white">
         <tr>
             <td style="width:20%" >
-              <div class="logo-riosaudedefasacivil" >
+             <div id="logo" data-bind="attr:{class:logo}">
                 </div>
             </td> 
             <td style="width:80%; text-align:center" ><h3>

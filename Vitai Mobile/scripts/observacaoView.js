@@ -8,11 +8,12 @@
         secao: "", // grupo do risco
         titulo: "",
         descricaoUnidade: "",
+        logo:"",
         onViewShow: function(e)
         {
            
             var that = this;
-            
+            this.set("logo",app.usuarioSettings.LOGO);
             that.set("secao", e.view.params.secao);
             that.set("titulo", e.view.params.nmsecao);
             this.dataSource.transport.options.read.url = app.unidadeUrl + "/ws/relatorio";
@@ -52,8 +53,7 @@
                            sortable:true,
                           sort: { field: "TEMPO_ESPERA", dir: "desc" }
                     })
-        
-             
+            
     });
 
     app.observacaoViewService = {

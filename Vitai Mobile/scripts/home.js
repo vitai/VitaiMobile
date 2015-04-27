@@ -6,7 +6,7 @@
         isLoggedIn: false,
         username: "",
         password: "",
-
+        logo:"",
         onLogin: function () {
             var that = this,
                 username = that.get("username").trim(),
@@ -43,7 +43,8 @@
                 $(e.target).blur();
                 that.onLogin();
             }
-        }
+        }     
+        
     });
 
     app.loginService = {

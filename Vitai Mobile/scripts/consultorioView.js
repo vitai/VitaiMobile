@@ -13,13 +13,13 @@
         query:5,
         colorIsVisible: false,
         descricaoUnidade: "",
+        logo:"",
         onViewShow: function(e)
         {
            
             var that = this;
-            
             that.set("colorIsVisible", false);
-            
+            this.set("logo",app.usuarioSettings.LOGO);
             that.set("risco", e.view.params.risco);
             that.set("descricaoUnidade", app.unidadeCorrente.DESCRICAO);
             if (e.view.params.ordem == 4 || e.view.params.risco.indexOf("PEDI") > -1)
@@ -104,7 +104,6 @@
                            sortable:true,
                           sort: { field: "TEMPO_ESPERA", dir: "desc" }
                     })
-        
              
     });
 

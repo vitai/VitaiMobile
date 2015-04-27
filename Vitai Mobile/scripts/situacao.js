@@ -3,8 +3,10 @@
         app = global.app = global.app || {};
    
     SituacaoViewModel = kendo.data.ObservableObject.extend({
+        logo:"",
         onInit:function()
         {
+            
             app.currentViewModel = this;
             
         },
@@ -72,11 +74,13 @@
         },
         onBeforeShowView: function(e)
         {
+            this.set("logo",app.usuarioSettings.LOGO);
             var s = app.unidadeUrl + "/ws/relatorio?q=3&setorId=" + app.unidadeCorrente.CODIGO;
             this.dataSource.transport.options.read.url = s;
             this.set("descricaoUnidade", app.unidadeCorrente.DESCRICAO);
             this.dataSource.read()
         }
+        
     });
 
     app.situacaoService = {
