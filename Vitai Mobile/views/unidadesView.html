@@ -1,10 +1,12 @@
 <div   data-role="view"  data-title="Unidades" data-layout="main"
-    data-model="app.unidadesService.viewModel">
+    data-model="app.unidadesService.viewModel"  data-bind="events:{beforeShow:onViewShow}">
      
     <div data-role="header">
       <div data-role="navbar">
           <div >
+              <a  data-role="button" data-align="left" href="views/Login.html" data-icon="drawer-button"></a>
               <span data-role="view-title" style="line-height:1.8em"></span>
+              <a data-role="button" data-align="right" data-icon="refresh" data-bind="click: onUpdate" ></a>
           </div>
       </div>
     </div>    

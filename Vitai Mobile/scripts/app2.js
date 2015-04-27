@@ -7,7 +7,14 @@
             return anchorEl.href;
         };
     
+    app.Logoff = function()
+    {
+        app.permissoes = null;
+        app.usuarioSettings = [];
+    }
+    
     app.unidadeUrl = "http://177.124.207.146:8080/sits";
+    app.usuarioSettings = [];
     app.permissoes = null;
     app.currentViewModel = null;
     app.idglobal = "logo-riosaudedefasacivil";
@@ -42,7 +49,7 @@
         //if (app.unidadeCorrente)
         //    app.application = new kendo.mobile.Application(document.body, { skin: 'flat', initial: 'views/situacao.html' });
         //else
-            app.application = new kendo.mobile.Application(document.body, { skin: 'flat', initial: 'views/unidadesView.html' });
+            app.application = new kendo.mobile.Application(document.body, { skin: 'flat', initial: 'views/Login.html' });
         
     }, false);
 })(window);
