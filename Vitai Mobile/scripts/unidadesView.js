@@ -4,9 +4,10 @@
    
 
     UnidadesViewModel = kendo.data.ObservableObject.extend({
-        logo:app.usuarioSettings.LOGO,
+        logo:"",
         onViewShow: function(e)
         {
+            this.set("logo",app.usuarioSettings.LOGO);
             this.dataSource.read({ data: app.usuarioSettings.UNIDADES});
             var that = this;
             

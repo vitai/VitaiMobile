@@ -7,9 +7,9 @@ var LoginModel,
                 { UNIDADEID:2, URL:"http://177.153.18.165:8095/sits", DESCRICAO:"UPA-SENADOR CAMARA", CODIGO:1 }
             ] }];
    var retornoABBC = [{STATUS:"OK", LOGO: "logo-abbc", PERMISSOES:[{Permissao:"ADM"},{Permissao:"MEDICO"}], UNIDADES:[
-                { UNIDADEID:1, URL:"http://177.124.207.146:8080/sits", DESCRICAO:"UPA-PRINCESA ISABEL", CODIGO:1 },
-                { UNIDADEID:2, URL:"http://177.153.18.165:8095/sits", DESCRICAO:"UPA-GUARABIRA", CODIGO:1 },
-                { UNIDADEID:3, URL:"http://177.153.18.165:8095/sits", DESCRICAO:"UPA-BRANGANÇA", CODIGO:1 }
+                { UNIDADEID:1, URL:"http://upasantarita.dyndns.info:8080/santarita", DESCRICAO:"UPA-SANTA RITA", CODIGO:1 },
+                //{ UNIDADEID:2, URL:"http://upaguarabira.no-ip.org:8080/sits", DESCRICAO:"UPA-GUARABIRA", CODIGO:1 },
+                { UNIDADEID:3, URL:"http://179.188.2.93:8080/sits", DESCRICAO:"UPA-BRANGANÇA", CODIGO:1 }
             ] }];    
     var retornoErro = [{STATUS:"ERRO"}];
     
@@ -66,12 +66,18 @@ LoginModel = kendo.data.ObservableObject.extend({
                {
                    dataTemp = retornoABBC;
                }
-          this.username = "";
-           this.password="";
+
+           
+           
            // FIM CODIGO TEMPORARIO
           
           this.dataSource.read({ data: dataTemp });
            
+          
+      },onBeforeShowView:function(e){
+            this.set("username", "");
+           this.set("password", "");
+          app.Logoff();
           
       }
 });
