@@ -1,5 +1,5 @@
 (function (global) {
-    var UnidadesViewModel,
+    var UnidadesViewModel;
         app = global.app = global.app || {};
    
 
@@ -7,6 +7,7 @@
         logo:"",
         onViewShow: function(e)
         {
+            console.log('teste');
             this.set("logo",app.usuarioSettings.LOGO);
             this.dataSource.read({ data: app.usuarioSettings.UNIDADES});
             var that = this;

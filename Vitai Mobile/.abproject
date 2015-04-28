@@ -3,10 +3,10 @@
   "ProjectGuid": "a7a57599-00c3-4851-8a51-da07faabfaa5",
   "projectVersion": 1,
   "AppIdentifier": "br.com.vitai.VitaiAgileApp",
-  "DisplayName": "Vitai Agile",
+  "DisplayName": "Ti-Med Agile",
   "Author": "",
-  "Description": "Vitai Agile",
-  "BundleVersion": "1.2",
+  "Description": "Ti-Med Agile",
+  "BundleVersion": "1.4",
   "AndroidVersionCode": "1",
   "iOSDeviceFamily": [
     "1",

@@ -22,7 +22,9 @@
     
     document.addEventListener("deviceready", function () {
         navigator.splashscreen.hide();
+        
             document.addEventListener("resume", function(){
+                console.log('resume');
                 if (app.currentViewModel)
                     app.currentViewModel.refresh();
             }, false);
@@ -49,7 +51,9 @@
         //if (app.unidadeCorrente)
         //    app.application = new kendo.mobile.Application(document.body, { skin: 'flat', initial: 'views/situacao.html' });
         //else
-            app.application = new kendo.mobile.Application(document.body, { skin: 'flat', initial: 'views/Login.html' });
+        
+        
+        app.application = new kendo.mobile.Application(document.body, { skin: 'flat', initial: 'views/Login.html' });
         
     }, false);
 })(window);

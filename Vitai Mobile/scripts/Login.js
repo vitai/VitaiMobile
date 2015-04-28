@@ -57,7 +57,7 @@ LoginModel = kendo.data.ObservableObject.extend({
            
            //CODIGO TEMPORARIO ENQUANTO NÃO HA WEBSERVICE DE AUTENTICACAO
            var dataTemp = retornoErro;
-           if (this.username == "RioSaude" && this.password=="rs123")
+           if (this.username == "riosaude" && this.password=="rs123")
            {
                dataTemp =  retornoRioSaude;
            }                
@@ -75,9 +75,10 @@ LoginModel = kendo.data.ObservableObject.extend({
            
           
       },onBeforeShowView:function(e){
-            this.set("username", "");
-           this.set("password", "");
-          app.Logoff();
+          console.log(e);
+           //this.set("username", "");
+           //this.set("password", "");
+           //app.Logoff();
           
       }
 });
