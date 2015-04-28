@@ -1,10 +1,13 @@
 (function (global) {
-    var UnidadesViewModel;
+    var UnidadesViewModel,
         app = global.app = global.app || {};
    
 
     UnidadesViewModel = kendo.data.ObservableObject.extend({
         logo:"",
+        onInit: function(e){
+            console.log('teste');
+        },
         onViewShow: function(e)
         {
             console.log('teste');
