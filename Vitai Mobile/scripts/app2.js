@@ -28,7 +28,9 @@
                 if (app.currentViewModel)
                     app.currentViewModel.refresh();
             }, false);
-
+        
+        kendo.culture("pt-BR");
+        
         app.unidadeCorrente = null;
         app.currentViewModel = null;
         
@@ -51,8 +53,7 @@
         //if (app.unidadeCorrente)
         //    app.application = new kendo.mobile.Application(document.body, { skin: 'flat', initial: 'views/situacao.html' });
         //else
-        
-        
+                
         app.application = new kendo.mobile.Application(document.body, { skin: 'flat', initial: 'views/Login.html' });
         
     }, false);

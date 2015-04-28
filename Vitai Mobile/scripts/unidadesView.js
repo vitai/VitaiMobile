@@ -6,11 +6,11 @@
     UnidadesViewModel = kendo.data.ObservableObject.extend({
         logo:"",
         onInit: function(e){
-            console.log('teste');
+            
         },
         onViewShow: function(e)
         {
-            console.log('teste');
+            
             this.set("logo",app.usuarioSettings.LOGO);
             this.dataSource.read({ data: app.usuarioSettings.UNIDADES});
             var that = this;
@@ -32,7 +32,6 @@
         {
             app.unidadeCorrente = e.dataItem;
             app.unidadeUrl = e.dataItem.URL;
-            //console.log(app.unidadeUrl);
             app.application.navigate('views/situacao.html');
         }
              

@@ -14,6 +14,10 @@
         colorIsVisible: false,
         descricaoUnidade: "",
         logo:"",
+        onInit:function()
+        {
+            app.currentViewModel = this;
+        },        
         onViewShow: function(e)
         {
            
@@ -22,12 +26,12 @@
             this.set("logo",app.usuarioSettings.LOGO);
             that.set("risco", e.view.params.risco);
             that.set("descricaoUnidade", app.unidadeCorrente.DESCRICAO);
-            if (e.view.params.ordem == 4 || e.view.params.risco.indexOf("PEDI") > -1)
+            if (e.view.params.ordem == 2 || e.view.params.risco.indexOf("PEDI") > -1)
                 that.set("consultorioPediatrico", "S");
             else  
                 that.set("consultorioPediatrico", "N");
             
-            if (e.view.params.ordem == 4 || e.view.params.ordem == 3) 
+            if (e.view.params.ordem == 2 || e.view.params.ordem == 1) 
                 {
                     that.set("colorIsVisible", true);
                     that.set("query", 5);

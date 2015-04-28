@@ -23,19 +23,19 @@
         observacoes: [],
          dataSourcePaciente: new kendo.data.DataSource({
             transport: { read:  { dataType: "json" } },
-            sortable:true
-        }),        
-        dataSourceClass: new kendo.data.DataSource({
-            transport: { read:  { dataType: "json" } },
             sortable:true,
             schema: {
             parse: function (response) {
-                
+                console.log(response);
                     if (response.length > 0)
-                        app.situacaoService.viewModel.set("dataAtualizacao", response[0].DATAATUALIZACAO);
+                        app.situacaoService.viewModel.set("dataAtualizacao", kendo.toString(new Date(), "G"));
                     return response;
                 }
-            }            
+            }  
+        }),        
+        dataSourceClass: new kendo.data.DataSource({
+            transport: { read:  { dataType: "json" } },
+            sortable:true          
         }),    
           dataSourceLeito: new kendo.data.DataSource({
             transport: { read:  { dataType: "json" } },
@@ -84,7 +84,7 @@
         },
         showHelp: function(e)
         {
-            console.log(e);
+            
         },
         onBeforeShowView: function(e)
         {

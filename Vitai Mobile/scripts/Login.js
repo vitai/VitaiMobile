@@ -29,7 +29,6 @@ LoginModel = kendo.data.ObservableObject.extend({
                     
                     if (response[0].STATUS == "OK"){
                         app.usuarioSettings = response[0];
-                        console.log(app.usuarioSettings);
                         app.permissoes = response[0].PERMISSOES;
                          app.application.navigate('views/unidadesView.html');
                         return response;
@@ -76,7 +75,7 @@ LoginModel = kendo.data.ObservableObject.extend({
            
           
       },onBeforeShowView:function(e){
-          console.log(e);
+          
            this.set("username", "");
            this.set("password", "");
            app.Logoff();

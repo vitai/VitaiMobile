@@ -9,7 +9,11 @@
         titulo: "",
         descricaoUnidade: "",
         logo:"",
-     
+        onInit:function()
+        {
+            app.currentViewModel = this;
+        },
+         
         onViewShow: function(e)
         {
            

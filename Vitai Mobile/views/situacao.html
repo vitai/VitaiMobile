@@ -28,12 +28,38 @@
         </tr>
     </table>
     
-    <ul  data-auto-bind="false"  data-role="listview" data-style="inset" data-template="situacaoTemplate" data-bind="source: dataSourcePaciente"></ul>
+    <div class="list-view-wrapper">
+        
+    
+        <div  class="helpIcon2" onclick="showHelpText('teste')" >
+        </div><h2 class="listHeader2" >PACIENTES</h2>
+        <ul  data-auto-bind="false"  data-role="listview" data-style="inset" data-template="situacaoTemplate" data-bind="source: dataSourcePaciente"></ul>
+    </div>
+        <div class="list-view-wrapper">
+        
+    
+        <div  class="helpIcon2" onclick="showHelpText('teste')" >
+        </div><h2 class="listHeader2" >FILA CLASSIF. DE RISCO</h2>
     <ul  data-auto-bind="false"  data-role="listview" data-style="inset" data-template="situacaoTemplate" data-bind="source: dataSourceClass"></ul>
-    <ul  data-auto-bind="false"  data-role="listview" data-style="inset" data-template="situacaoTemplate" data-bind="source: dataSourcePres"></ul>
-    <ul  data-auto-bind="false"  data-role="listview" data-style="inset" data-template="situacaoTemplate" data-bind="source: dataSourceLeito"></ul>
+    </div>
+    
+    <ul  data-auto-bind="false"  data-role="listview" data-style="inset" data-template="situacaoTemplate" data-header-template="headerTemplate" data-type="group" data-bind="source: dataSourceCons, events:{dataBound: onListDataboud}"></ul>
+    <div class="list-view-wrapper">
+        
+    
+        <div  class="helpIcon2" onclick="showHelpText('teste')" >
+        </div><h2 class="listHeader2" >PRESCRIÇÕES</h2>
+        <ul  data-auto-bind="false"  data-role="listview" data-style="inset" data-template="situacaoTemplate" data-bind="source: dataSourcePres"></ul>
+    </div>
+        <div class="list-view-wrapper">
+        
+    
+        <div  class="helpIcon2" onclick="showHelpText('teste')" >
+        </div><h2 class="listHeader2" >OBSERVAÇÃO</h2>
+    <ul  data-auto-bind="false"  data-role="listview" data-style="inset" data-template="contactsTemplate" data-bind="source: dataSourceLeito"></ul>
+    </div>
     <!--<ul  data-auto-bind="false"  data-role="listview" data-style="inset" data-template="contactsTemplate" data-header-template="headerTemplate" data-type="group" data-bind="source: dataSource, events:{dataBound: onListDataboud}"></ul>-->
-    <ul  data-auto-bind="false"  data-role="listview" data-style="inset" data-template="contactsTemplate" data-header-template="headerTemplate" data-type="group" data-bind="source: dataSourceCons, events:{dataBound: onListDataboud}"></ul>
+    
 </div>
 
 <div data-role="modalview" id="modalview-help" style="width: 90%;">
@@ -66,12 +92,12 @@
 
      #if(data.LINKTO && data.VALOR > 0){#
          
-         <a href='views/consultorioView.html?risco=#:data.DESCRICAO#&ordem=#:data.ORDEM#' data-role="list-view-link" style="float:left; width:100%">
-         <div style="float:left">#: data.DESCRICAO #:</div> <div style="float:right; margin-right:30px"><b>#: data.VALOR #</b></div>
+         <a href='views/consultorioView.html?risco=#:data.DESCRICAO#&ordem=#:data.ORDEM#' data-role="list-view-link" >
+         <div style="display:inline-block">#: data.DESCRICAO #:</div> <div style="display:inline-block;float:right; margin-right:20px"><b>#: data.VALOR #</b></div>
          </a>
      #}else{#
      
-         <div class="semLink"><div style="float:left" >#: data.DESCRICAO #:</div> <div style="float:right;"><b>#: data.VALOR #</b></div></div>
+         <div style="display:inline-block">#: data.DESCRICAO #:</div> <div style="display:inline-block;float:right; margin-right:20px"><b>#: data.VALOR #</b></div>
      #}#
       
      
@@ -82,19 +108,19 @@
      #if(data.LINKTO && data.VALOR > 0){#
      
          
-         <a href='views/consultorioView.html?risco=#:data.DESCRICAO#&ordem=#:data.ORDEM#' data-role="list-view-link" style="float:left; width:100%">
-         <div style="float:left">#: data.DESCRICAO #:</div> <div style="float:right; margin-right:30px"><b>#: data.VALOR #</b></div>
+         <a href='views/consultorioView.html?risco=#:data.DESCRICAO#&ordem=#:data.ORDEM#' data-role="list-view-link" >
+         <div style="display:inline-block">#: data.DESCRICAO #:</div> <div style="display:inline-block;float:right; margin-right:20px"><b>#: data.VALOR #</b></div>
          </a>
      
      #}else if(data.LINKTO && data.VALOR.substring(0,1) > 0){#
 
-        <a href='views/observacaoView.html?secao=#:data.CHAVE#&nmsecao=#:data.DESCRICAO#' data-role="list-view-link" style="float:left; width:100%">
-         <div style="float:left">#: data.DESCRICAO #:</div> <div style="float:right; margin-right:30px"><b>#: data.VALOR #</b></div>
+        <a href='views/observacaoView.html?secao=#:data.CHAVE#&nmsecao=#:data.DESCRICAO#' data-role="list-view-link" >
+         <div style="display:inline-block">#: data.DESCRICAO #:</div> <div style="display:inline-block; float:right; margin-right:20px"><b>#: data.VALOR #</b></div>
          </a>
      
      #}else{#
      
-         <div class="semLink"><div style="float:left" >#: data.DESCRICAO #:</div> <div style="float:right;"><b>#: data.VALOR #</b></div></div>
+         <div style="display:inline-block">#: data.DESCRICAO #:</div> <div style="display:inline-block;float:right; margin-right:20px"><b>#: data.VALOR #</b></div>
      #}#
       
      
@@ -105,6 +131,13 @@
     {
         app.situacaoService.viewModel.dataSource.read();
     }
+    
+    function showHelpText(text)
+    {
+        $("#modalContent").html(text);
+        $("#modalview-help").data("kendoMobileModalView").open();
+    }
+    
     function showHelp(id)
     {
         $("#modalContent").html(app.situacaoService.viewModel.observacoes[id-1]);
