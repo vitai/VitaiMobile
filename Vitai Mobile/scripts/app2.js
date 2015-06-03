@@ -7,18 +7,25 @@
             return anchorEl.href;
         };
     
+       
     app.Logoff = function()
     {
         app.permissoes = null;
         app.usuarioSettings = [];
     }
     
+    app.login = function(userSettings){
+       app.usuarioSettings = userSettings;
+       app.permissoes = userSettings.PERMISSOES;
+       app.application.navigate('views/unidadesView.html'); 
+    }
+    
+    kendo.culture("pt-BR");
     app.unidadeUrl = "http://177.124.207.146:8080/sits";
     app.usuarioSettings = [];
     app.permissoes = null;
     app.currentViewModel = null;
-    app.idglobal = "logo-riosaudedefasacivil";
-    app.idglobal2 = "logo-abbc";
+    app.unidadeCorrente = null;
     
     document.addEventListener("deviceready", function () {
         navigator.splashscreen.hide();
@@ -28,10 +35,7 @@
                 if (app.currentViewModel)
                     app.currentViewModel.refresh();
             }, false);
-        
-        kendo.culture("pt-BR");
-        
-        app.unidadeCorrente = null;
+
         app.currentViewModel = null;
         
         app.changeSkin = function (e) {
@@ -49,11 +53,7 @@
             
 
         };
-           
-        //if (app.unidadeCorrente)
-        //    app.application = new kendo.mobile.Application(document.body, { skin: 'flat', initial: 'views/situacao.html' });
-        //else
-                
+    
         app.application = new kendo.mobile.Application(document.body, { skin: 'flat', initial: 'views/Login.html' });
         
     }, false);

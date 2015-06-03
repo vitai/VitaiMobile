@@ -9,6 +9,7 @@
         titulo: "",
         descricaoUnidade: "",
         logo:"",
+        media:"",
         onInit:function()
         {
             app.currentViewModel = this;
@@ -47,7 +48,8 @@
                                 parse: function (response) {
                                     if (response)
                                     {
-                                        
+                                        if (response.length > 0)
+                                        	app.observacaoViewService.viewModel.set("media", response[0].MEDIA);
                                         return response;
                                     }
                                     else
@@ -57,7 +59,7 @@
                           },
                            
                            sortable:true,
-                          sort: { field: "TEMPO_ESPERA", dir: "desc" }
+                          sort: { field: "DATEDIFF", dir: "desc" }
                     })
             
     });

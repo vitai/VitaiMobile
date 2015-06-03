@@ -1,11 +1,5 @@
 
 (function () {
- 
-    
-    // store a reference to the application object that will be created
-    // later on so that we can use it if need be
-    var app;
-    
     var val = 1;
     var dado= $.parseJSON('{"painelSituacaoBean":[{"id":"3180","dataAtualizacao":"11/03/2015 15:28:20","descricao":"REGISTRADOS EM 24H","grupo":"PACIENTES","media":"156","ordem":"1","valor":"'+ val +'"},{"id":"3181","dataAtualizacao":"11/03/2015 15:28:20","descricao":"SEM ALTA EM 24H","grupo":"PACIENTES","ordem":"1","valor":"0"},{"id":"3182","dataAtualizacao":"11/03/2015 15:28:20","descricao":"SALA AMARELA","grupo":"LEITOS","ordem":"5","valor":"1/21 leitos ocupados"},{"id":"3183","dataAtualizacao":"11/03/2015 15:28:20","descricao":"SALA VERMELHA","grupo":"LEITOS","ordem":"5","valor":"3/14 leitos ocupados"}]}');
     var pullTime, dataSource, image, counter = 0;
@@ -104,19 +98,10 @@
             }
              
         },
-        settings: {
-          title: 'Settings'
-        },
-        contacts: {
-          title: 'Contacts',
-          ds: new kendo.data.DataSource({
-            data: [{ id: 1, name: 'Bob' }, { id: 2, name: 'Mary' }, { id: 3, name: 'John' }]
-          }),
           alert: function(e) {
             alert(e.data.name);
           }
-        }
-      }
+       }
     };
 
     // this function is called by Cordova when the application is loaded by the device

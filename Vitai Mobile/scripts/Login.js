@@ -4,7 +4,9 @@ var LoginModel,
     
    var retornoRioSaude = [{STATUS:"OK", LOGO: "logo-riosaudedefasacivil", PERMISSOES:[{Permissao:"ADM"},{Permissao:"MEDICO"}], UNIDADES:[
                 { UNIDADEID:1, URL:"http://177.124.207.146:8080/sits", DESCRICAO:"CER-BARRA", CODIGO:1 },
-                { UNIDADEID:2, URL:"http://177.153.18.165:8095/sits", DESCRICAO:"UPA-SENADOR CAMARA", CODIGO:1 }
+                { UNIDADEID:2, URL:"http://177.153.18.165:8095/sits", DESCRICAO:"UPA-SENADOR CAMARA", CODIGO:1 },
+                { UNIDADEID:3, URL:"http://177.153.18.165:8096/sits", DESCRICAO:"UPA-ROCHA MIRANDA", CODIGO:1 }
+       
             ] }];
    var retornoABBC = [{STATUS:"OK", LOGO: "logo-abbc", PERMISSOES:[{Permissao:"ADM"},{Permissao:"MEDICO"}], UNIDADES:[
                 { UNIDADEID:1, URL:"http://upasantarita.dyndns.info:8080/santarita", DESCRICAO:"UPA-SANTA RITA", CODIGO:1 },
@@ -28,9 +30,7 @@ LoginModel = kendo.data.ObservableObject.extend({
                 parse: function (response) {  
                     
                     if (response[0].STATUS == "OK"){
-                        app.usuarioSettings = response[0];
-                        app.permissoes = response[0].PERMISSOES;
-                         app.application.navigate('views/unidadesView.html');
+                       app.login(response[0]);
                         return response;
                        }                
                         else
@@ -57,12 +57,12 @@ LoginModel = kendo.data.ObservableObject.extend({
            
            //CODIGO TEMPORARIO ENQUANTO NÃO HA WEBSERVICE DE AUTENTICACAO
            var dataTemp = retornoErro;
-           if (this.username == "riosaude" && this.password=="rs123")
+           if (this.username == "riosaude" && this.password == "rs123")
            {
                dataTemp =  retornoRioSaude;
            }                
                
-           else if (this.username == "ABBC" && this.password=="abbc123") 
+          else if (this.username == "ABBC" && this.password == "abbc123") 
                {
                    dataTemp = retornoABBC;
                }

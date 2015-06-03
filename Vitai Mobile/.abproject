@@ -4,9 +4,9 @@
   "projectVersion": 1,
   "AppIdentifier": "br.com.vitai.VitaiAgileApp",
   "DisplayName": "Ti-Med Agile",
-  "Author": "",
+  "Author": "Vitai",
   "Description": "Ti-Med Agile",
-  "BundleVersion": "1.4",
+  "BundleVersion": "1.7",
   "AndroidVersionCode": "1",
   "iOSDeviceFamily": [
     "1",

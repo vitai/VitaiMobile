@@ -14,6 +14,7 @@
         colorIsVisible: false,
         descricaoUnidade: "",
         logo:"",
+        meta:"",
         onInit:function()
         {
             app.currentViewModel = this;
@@ -25,6 +26,15 @@
             that.set("colorIsVisible", false);
             this.set("logo",app.usuarioSettings.LOGO);
             that.set("risco", e.view.params.risco);
+            
+            console.log(e.view.params.risco);
+            if (e.view.params.risco == 'VERDE')
+                this.set("meta", "Meta: 60 min");
+            else if (e.view.params.risco == 'AMARELO')
+                this.set("meta", "Meta: 30 min");
+            else
+                this.set("meta", "");
+            console.log(e.view.params.risco);
             that.set("descricaoUnidade", app.unidadeCorrente.DESCRICAO);
             if (e.view.params.ordem == 2 || e.view.params.risco.indexOf("PEDI") > -1)
                 that.set("consultorioPediatrico", "S");
@@ -39,7 +49,7 @@
                     that.set("tipo", "O");
                 }
                 
-            else if (e.view.params.ordem == 2)
+            else if (e.view.params.ordem == 3)
                 {
                     that.set("query", 8);
                     that.set("tipo", "C");    
@@ -51,7 +61,7 @@
 
             this.dataSource.transport.options.read.url = app.unidadeUrl + "/ws/relatorio";
             that.dataSource.read()
-            
+
         },
         dataSource: new kendo.data.DataSource({
                           transport: {
@@ -68,6 +78,7 @@
                                                 "pediatrico": app.consultorioViewService.viewModel.consultorioPediatrico, 
                                                 "tipo": app.consultorioViewService.viewModel.tipo
                                             };
+                                                 
                                       if (app.consultorioViewService.viewModel.query == 8)
                                           param = {
                                                 
@@ -76,7 +87,7 @@
                                                 "pediatrico": app.consultorioViewService.viewModel.consultorioPediatrico, 
                                                 "tipo": app.consultorioViewService.viewModel.tipo
                                             };
-                                      
+                                      console.log(param);
                                       return param;
                                         
                                     }
@@ -84,6 +95,7 @@
                            },            
                             schema: {
                                 parse: function (response) {
+                                    console.log(JSON.stringify(response));
                                     if (response)
                                     {
                                         

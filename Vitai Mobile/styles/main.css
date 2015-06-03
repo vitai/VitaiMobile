@@ -160,6 +160,26 @@ html{
     margin-left: 15px;
 }
 
+.alerta_vermelho, .alerta_amarelo, .alerta_vazio
+{
+    
+    background-repeat: no-repeat;
+    display:inline-block;
+    height: 20px;
+    width:20px;
+    
+}
+
+.alerta_vermelho
+{
+    background-image: url(../styles/images/alert_icon_red.gif);    
+}
+.alerta_amarelo
+{
+    background-image: url(../styles/images/alert_icon_yellow.gif);
+}
+
+
 #modalview-help
 {
     height:200px;
