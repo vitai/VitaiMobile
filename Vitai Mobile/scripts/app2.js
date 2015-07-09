@@ -1,13 +1,33 @@
 (function (global) {
-    var app = global.app = global.app || {};
+    var AppModel, app = global.app = global.app || {};
 
+    AppModel = kendo.data.ObservableObject.extend({
+        navDataSource: new kendo.data.DataSource({
+          	transport: {
+            	read: function(operation) {
+                	var data = operation.data.data || [];
+                	operation.success(data);
+            	}
+        	}
+        })
+    });
+    
+     app.appService = {
+        viewModel: new AppModel()
+    };
+    
     app.makeUrlAbsolute = function (url) {
             var anchorEl = document.createElement("a");
             anchorEl.href = url;
             return anchorEl.href;
         };
     
-       
+    app.addDays = function(date, days) {
+    	var result = new Date(date);
+    	result.setDate(date.getDate() + days);
+    	return new Date(result);
+	}   
+    
     app.Logoff = function()
     {
         app.permissoes = null;
@@ -53,8 +73,14 @@
             
 
         };
-    
+        
+        
+        kendo.bind($("#appDrawerMenu"), app.appService.viewModel);
+        
+
         app.application = new kendo.mobile.Application(document.body, { skin: 'flat', initial: 'views/Login.html' });
         
     }, false);
+    
+    
 })(window);

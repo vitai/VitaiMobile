@@ -3,16 +3,32 @@ var LoginModel,
   app = global.app = global.app || {};
     
    var retornoRioSaude = [{STATUS:"OK", LOGO: "logo-riosaudedefasacivil", PERMISSOES:[{Permissao:"ADM"},{Permissao:"MEDICO"}], UNIDADES:[
-                { UNIDADEID:1, URL:"http://177.124.207.146:8080/sits", DESCRICAO:"CER-BARRA", CODIGO:1 },
-                { UNIDADEID:2, URL:"http://177.153.18.165:8095/sits", DESCRICAO:"UPA-SENADOR CAMARA", CODIGO:1 },
-                { UNIDADEID:3, URL:"http://177.153.18.165:8096/sits", DESCRICAO:"UPA-ROCHA MIRANDA", CODIGO:1 }
+                { UNIDADEID:1, URL:"http://177.124.207.146:8080/sits", DESCRICAO:"CER-BARRA", CODIGO:1,
+                      NAV_SETTINGS:[{URL: "views/unidadesView.html", TITULO:"Unidades"},
+                                   {URL: "views/ProducaoProfissionalView.html", TITULO:"Produção Profissional"},
+                                   {URL: "views/situacao.html", TITULO:"Situação"},
+                                    {URL: "views/Login.html", TITULO:"SAIR"}
+                                   ]
+              },
+                { UNIDADEID:2, URL:"http://177.153.18.165:8095/sits", DESCRICAO:"UPA-SENADOR CAMARA", CODIGO:1,
+                      NAV_SETTINGS:[{URL: "views/unidadesView.html", TITULO:"Unidades"},
+                                   {URL: "views/unidadesView.html", TITULO:"Unidades"},
+                                   {URL: "views/unidadesView.html", TITULO:"Unidades"}
+                                   ]
+              },
+                { UNIDADEID:3, URL:"http://177.153.18.165:8096/sits", DESCRICAO:"UPA-ROCHA MIRANDA", CODIGO:1,
+                      NAV_SETTINGS:[{URL: "views/unidadesView.html", TITULO:"Unidades"},
+                                   {URL: "views/unidadesView.html", TITULO:"Unidades"},
+                                   {URL: "views/unidadesView.html", TITULO:"Unidades"}
+                                   ]
+              }
        
             ] }];
    var retornoABBC = [{STATUS:"OK", LOGO: "logo-abbc", PERMISSOES:[{Permissao:"ADM"},{Permissao:"MEDICO"}], UNIDADES:[
                 { UNIDADEID:1, URL:"http://upasantarita.dyndns.info:8080/santarita", DESCRICAO:"UPA-SANTA RITA", CODIGO:1 },
                 { UNIDADEID:2, URL:"http://upaguarabira.no-ip.org:8080/sits", DESCRICAO:"UPA-GUARABIRA", CODIGO:1 },
                 { UNIDADEID:3, URL:"http://179.188.2.93:8080/sits", DESCRICAO:"UPA-BRANGANÇA", CODIGO:1 }
-            ] }];    
+            ]    }];    
     var retornoErro = [{STATUS:"ERRO"}];
     
     

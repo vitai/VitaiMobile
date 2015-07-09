@@ -1,6 +1,11 @@
 (function (global) {
     var SituacaoViewModel,
         app = global.app = global.app || {};
+    
+    function handleError()
+    {
+        console.log('erro');
+    }
    
     SituacaoViewModel = kendo.data.ObservableObject.extend({
         logo:"",
@@ -22,35 +27,40 @@
         dataAtualizacao: "",
         observacoes: [],
          dataSourcePaciente: new kendo.data.DataSource({
-            transport: { read:  { dataType: "json" } },
+            transport: { read:  { dataType: "json", timeout: 2000 } },
             sortable:true,
             schema: {
             parse: function (response) {
-                console.log(response);
+                
                     if (response.length > 0)
                         app.situacaoService.viewModel.set("dataAtualizacao", kendo.toString(new Date(), "G"));
                     return response;
                 }
-            }  
+            },
+            error: handleError  
         }),        
         dataSourceClass: new kendo.data.DataSource({
-            transport: { read:  { dataType: "json" } },
-            sortable:true          
+            transport: { read:  { dataType: "json", timeout: 2000  } },
+            sortable:true,
+            error: handleError
         }),    
           dataSourceLeito: new kendo.data.DataSource({
-            transport: { read:  { dataType: "json" } },
-            sortable:true
+            transport: { read:  { dataType: "json", timeout: 2000  } },
+            sortable:true,
+            error: handleError
         }),    
            
             dataSourcePres: new kendo.data.DataSource({
-            transport: { read:  { dataType: "json" } },
-            sortable:true
+            transport: { read:  { dataType: "json", timeout: 6000  } },
+            sortable:true,
+            error: handleError
         }),    
         dataSourceCons: new kendo.data.DataSource({
-            transport: { read:  { dataType: "json" } },
+            transport: { read:  { dataType: "json", timeout: 2000  } },
             group: "ORDEM",
             sortable:true,
-            sort: { field: "ORDEM", dir: "asc" }
+            sort: { field: "ORDEM", dir: "asc" },
+            error: handleError
         }),
         onUpdate: function() 
         {

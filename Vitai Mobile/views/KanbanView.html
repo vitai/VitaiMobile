@@ -1,0 +1,55 @@
+  
+<div id="divKanbanView" data-role="view" data-title="KANBAN" data-layout="main" 
+     data-model="app.kanbanViewService.viewModel"  
+    data-bind="events: {show: onViewShow, init: onInit }">
+     
+    <div data-role="header">
+      <div data-role="navbar">
+          <div >
+              <a data-role="button" href="#appDrawer" data-rel="drawer" data-align="left" data-icon="drawer-button"></a>             
+              <span data-role="view-title" style="line-height:1.8em"></span>
+          </div>
+      </div>
+    </div>  
+    
+	<div data-role="content">
+        <!--table id="tableLogo" style="width:100%; background-color:white; height: 82px">
+            <tr>
+                <td style="width:20%" >
+                 <div id="logo" data-bind="attr:{class:logo}">
+                    </div>
+                </td> 
+                <td style="width:80%; text-align:center" ><h3>
+                    <div data-bind="html: descricaoUnidade">
+
+                    </div> </h3>
+                </td>
+            </tr>
+        </table-->
+        <ul data-role="listview" data-style="inset" data-template="kanbanTemplate" data-bind="source: dataSource"  ></ul>
+
+    </div>
+</div>
+<script type="text/x-kendo-template" id="kanbanTemplate">
+<div style="font-weight:bold">#: data.DESCRICAO #</div> 
+<div>
+    <div style="display:inline">Prescrito:</div><div style="display:inline">#: data.PRESCRITO #</div>
+    <div style="display:inline">/Dispensado:</div> <div style="display:inline">#: data.DISPENSADO #=</div>  <div style="display:inline">#: data.PERCENTUAL #%</div> 
+    <!--<div style="display:inline"> - Entrada:</div>  <div style="display:inline">#: data.BOE_DATAENTRADA #</div> -->
+</div>
+
+<!--style>
+    /* Grid columns with no width are collapsed if the space is not enough, thus min-width on the tables is needed */
+    .k-grid table
+    {
+        min-width: 600px;
+    }
+
+    /* Android's default browser doesn't support properly min-width on tables */
+    @media screen and (max-width: 699px) {
+        .km-phone .km-android .k-grid table
+        {
+            width: 600px;
+        }
+    }
+</style-->

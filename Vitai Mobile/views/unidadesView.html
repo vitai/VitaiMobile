@@ -4,7 +4,7 @@
     <div data-role="header">
       <div data-role="navbar">
           <div >
-              <a  data-role="button" data-align="left" href="views/Login.html" data-icon="drawer-button"></a>
+              <a  data-role="button" data-align="left" href="views/Login.html" data-icon="back-button"></a>
               <span data-role="view-title" style="line-height:1.8em"></span>
           </div>
       </div>
@@ -27,4 +27,9 @@
          <!--<a href='views/situacao.html?unidade=#:data.CODIGO#' data-role="list-view-link" >-->
              <div>#:data.DESCRICAO#</div>
          <!--</a>-->
+</script>
+
+<script>
+    // reset global drawer instance, for demo purposes
+    kendo.mobile.ui.Drawer.current = null;
 </script>
