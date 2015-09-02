@@ -24,11 +24,17 @@ var LoginModel,
               }
        
             ] }];
+    
    var retornoABBC = [{STATUS:"OK", LOGO: "logo-abbc", PERMISSOES:[{Permissao:"ADM"},{Permissao:"MEDICO"}], UNIDADES:[
                 { UNIDADEID:1, URL:"http://upasantarita.dyndns.info:8080/santarita", DESCRICAO:"UPA-SANTA RITA", CODIGO:1 },
                 { UNIDADEID:2, URL:"http://upaguarabira.no-ip.org:8080/sits", DESCRICAO:"UPA-GUARABIRA", CODIGO:1 },
                 { UNIDADEID:3, URL:"http://179.188.2.93:8080/sits", DESCRICAO:"UPA-BRANGANÇA", CODIGO:1 }
-            ]    }];    
+            ]    }];  
+    
+   var retornoCVB = [{STATUS:"OK", LOGO: "", PERMISSOES:[{Permissao:"ADM"},{Permissao:"MEDICO"}], UNIDADES:[
+                { UNIDADEID:1, URL:"http://127.0.0.1", DESCRICAO:"UPA-ENGENHO DE DENTRO", CODIGO:1 }
+            ]}];   
+    
     var retornoErro = [{STATUS:"ERRO"}];
     
     
@@ -73,15 +79,25 @@ LoginModel = kendo.data.ObservableObject.extend({
            
            //CODIGO TEMPORARIO ENQUANTO NÃO HA WEBSERVICE DE AUTENTICACAO
            var dataTemp = retornoErro;
-           if (this.username == "riosaude" && this.password == "rs123")
+           
+                 
+       if (this.username == "CVBRJ"  && this.password == "cvbrj123")
            {
+               dataTemp =  retornoCVB;
+           }
+           
+      if(this.username == "riosaude" && this.password == "rs123"){
+                           
                dataTemp =  retornoRioSaude;
-           }                
+            }
+           
+       if(this.username == ("ABBC")  && this.password == "abbc123")
+           {
+                           
+               dataTemp =  retornoABBC;    
                
-          else if (this.username == "ABBC" && this.password == "abbc123") 
-               {
-                   dataTemp = retornoABBC;
-               }
+           }
+           
 
            
            
