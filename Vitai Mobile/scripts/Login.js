@@ -10,13 +10,13 @@ var LoginModel,
                                     {URL: "views/Login.html", TITULO:"SAIR"}
                                    ]
               },
-                { UNIDADEID:2, URL:"http://177.153.18.165:8095/sits", DESCRICAO:"UPA-SENADOR CAMARA", CODIGO:1,
+                { UNIDADEID:2, URL:"http://upasc.is-gone.com:8091/sits", DESCRICAO:"UPA-SENADOR CAMARA", CODIGO:1,
                       NAV_SETTINGS:[{URL: "views/unidadesView.html", TITULO:"Unidades"},
                                    {URL: "views/unidadesView.html", TITULO:"Unidades"},
                                    {URL: "views/unidadesView.html", TITULO:"Unidades"}
                                    ]
               },
-                { UNIDADEID:3, URL:"http://177.153.18.165:8096/sits", DESCRICAO:"UPA-ROCHA MIRANDA", CODIGO:1,
+                { UNIDADEID:3, URL:"http://177.11.0.144:8081/sits", DESCRICAO:"UPA-ROCHA MIRANDA", CODIGO:1,
                       NAV_SETTINGS:[{URL: "views/unidadesView.html", TITULO:"Unidades"},
                                    {URL: "views/unidadesView.html", TITULO:"Unidades"},
                                    {URL: "views/unidadesView.html", TITULO:"Unidades"}
@@ -32,7 +32,7 @@ var LoginModel,
             ]    }];  
     
    var retornoCVB = [{STATUS:"OK", LOGO: "", PERMISSOES:[{Permissao:"ADM"},{Permissao:"MEDICO"}], UNIDADES:[
-                { UNIDADEID:1, URL:"http://127.0.0.1", DESCRICAO:"UPA-ENGENHO DE DENTRO", CODIGO:1 }
+                { UNIDADEID:1, URL:"http://177.192.7.152:8080/sits", DESCRICAO:"UPA-ENGENHO DE DENTRO", CODIGO:1 }
             ]}];   
     
     var retornoErro = [{STATUS:"ERRO"}];
@@ -58,11 +58,8 @@ LoginModel = kendo.data.ObservableObject.extend({
                         else
                        {
                             navigator.notification.alert("Este usuário não existe.");
-
                             return response;   
-
-                        }
-
+                       }
                 }
             }
         }),
