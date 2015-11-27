@@ -7,16 +7,22 @@ var LoginModel,
                       NAV_SETTINGS:[{URL: "views/unidadesView.html", TITULO:"Unidades"},
                                    {URL: "views/ProducaoProfissionalView.html", TITULO:"Produção Profissional"},
                                    {URL: "views/situacao.html", TITULO:"Situação"},
-                                    {URL: "views/Login.html", TITULO:"SAIR"}
+                                   {URL: "views/Login.html", TITULO:"SAIR"}
                                    ]
               },
-                { UNIDADEID:2, URL:"http://upasc.is-gone.com:8091/sits", DESCRICAO:"UPA-SENADOR CAMARA", CODIGO:1,
+                { UNIDADEID:2, URL:"http://upasc.is-gone.com:8080/sits", DESCRICAO:"UPA-SENADOR CAMARA", CODIGO:1,
                       NAV_SETTINGS:[{URL: "views/unidadesView.html", TITULO:"Unidades"},
                                    {URL: "views/unidadesView.html", TITULO:"Unidades"},
                                    {URL: "views/unidadesView.html", TITULO:"Unidades"}
                                    ]
               },
                 { UNIDADEID:3, URL:"http://177.11.0.144:8081/sits", DESCRICAO:"UPA-ROCHA MIRANDA", CODIGO:1,
+                      NAV_SETTINGS:[{URL: "views/unidadesView.html", TITULO:"Unidades"},
+                                   {URL: "views/unidadesView.html", TITULO:"Unidades"},
+                                   {URL: "views/unidadesView.html", TITULO:"Unidades"}
+                                   ]
+              },
+                { UNIDADEID:3, URL:"http://upacdd.is-gone.com:8080/sits", DESCRICAO:"UPA-CIDADE DE DEUS", CODIGO:1,
                       NAV_SETTINGS:[{URL: "views/unidadesView.html", TITULO:"Unidades"},
                                    {URL: "views/unidadesView.html", TITULO:"Unidades"},
                                    {URL: "views/unidadesView.html", TITULO:"Unidades"}
@@ -31,9 +37,10 @@ var LoginModel,
                 { UNIDADEID:3, URL:"http://179.188.2.93:8080/sits", DESCRICAO:"UPA-BRANGANÇA", CODIGO:1 }
             ]    }];  
     
-   var retornoCVB = [{STATUS:"OK", LOGO: "", PERMISSOES:[{Permissao:"ADM"},{Permissao:"MEDICO"}], UNIDADES:[
-                { UNIDADEID:1, URL:"http://177.192.7.152:8080/sits", DESCRICAO:"UPA-ENGENHO DE DENTRO", CODIGO:1 }
-            ]}];   
+   var retornoCVB = [{STATUS:"OK", LOGO: "logo-cvbrj", PERMISSOES:[{Permissao:"ADM"},{Permissao:"MEDICO"}], UNIDADES:[
+                { UNIDADEID:1, URL:"http://upaed.is-gone.com:8080/sits", DESCRICAO:"UPA-ENGENHO DE DENTRO", CODIGO:1 }
+            ]}];  
+    
     
     var retornoErro = [{STATUS:"ERRO"}];
     
@@ -78,7 +85,7 @@ LoginModel = kendo.data.ObservableObject.extend({
            var dataTemp = retornoErro;
            
                  
-       if (this.username == "CVBRJ"  && this.password == "cvbrj123")
+       if (this.username == "cvbrj"  && this.password == "cvb123")
            {
                dataTemp =  retornoCVB;
            }
@@ -94,15 +101,11 @@ LoginModel = kendo.data.ObservableObject.extend({
                dataTemp =  retornoABBC;    
                
            }
-           
 
-           
-           
            // FIM CODIGO TEMPORARIO
           
           this.dataSource.read({ data: dataTemp });
-           
-          
+                  
       },onBeforeShowView:function(e){
           
            this.set("username", "");

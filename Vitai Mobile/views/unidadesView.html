@@ -23,13 +23,11 @@
         data-template="unidadesTemplate" data-bind="source: dataSource, events:{click: onListViewChanged }"></ul>
 </div>
 
-<script type="text/x-kendo-template" id="unidadesTemplate">
-         <!--<a href='views/situacao.html?unidade=#:data.CODIGO#' data-role="list-view-link" >-->
+<script type="text/x-kendo-template" id="unidadesTemplate">   
              <div>#:data.DESCRICAO#</div>
-         <!--</a>-->
 </script>
 
 <script>
     // reset global drawer instance, for demo purposes
-    kendo.mobile.ui.Drawer.current = null;
+    kendo.mobile.ui.Drawer.current = null;   
 </script>

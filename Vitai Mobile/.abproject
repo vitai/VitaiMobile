@@ -6,7 +6,7 @@
   "DisplayName": "Ti-Med Agile",
   "Author": "Vitai",
   "Description": "Ti-Med Agile",
-  "BundleVersion": "2.2",
+  "BundleVersion": "2.5",
   "AndroidVersionCode": "1",
   "iOSDeviceFamily": [
     "1",
@@ -37,5 +37,7 @@
     "ID_RESOLUTION_HD720P"
   ],
   "WP8WindowsPublisherName": "CN=Telerik",
-  "WP8PackageIdentityName": "1234Telerik.com.telerik.UpaMobile"
+  "WP8PackageIdentityName": "1234Telerik.com.telerik.UpaMobile",
+  "iOSDeploymentTarget": "6.0",
+  "WPSdk": "8.0"
 }

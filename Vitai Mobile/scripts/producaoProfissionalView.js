@@ -2,10 +2,12 @@
     var ProducaoProfissionalViewModel,
         app = global.app = global.app || {};
    
-    //var dadosFake = [{NOME: "FULANO", QUANTIDADE: "10", TEMPOMEDIO:"15", PRESCRICOES:"8"}];
+   //var dadosFake = [{NOME: "FULANO", QUANTIDADE: "10", TEMPOMEDIO:"15", PRESCRICOES:"8"}];
     
-    //var url = "http://177.153.18.165:8081/cerbt/ws/relatorio?q=5&setorId=1&risco=AMARELO&pediatrico=N";
+   //var url = "http://177.153.18.165:8081/cerbt/ws/relatorio?q=5&setorId=1&risco=AMARELO&pediatrico=N";
+    
     var controleTurno = null;
+    
     ProducaoProfissionalViewModel = kendo.data.ObservableObject.extend({
         descricaoUnidade: "",
         logo:"",
@@ -14,7 +16,7 @@
         onInit:function()
         {
             
-            var horaAgora = new Date().getHours() ;
+         var horaAgora = new Date().getHours();
             if (horaAgora >= 7 && horaAgora <= 19)
                 {
                     controleTurno = 0;
@@ -34,7 +36,7 @@
            var listviews = $("ul.km-listview");
 			
             $("#select-period").kendoMobileButtonGroup({
-                select: function(e) {
+           select: function(e) {
                    app.producaoProfissionalViewService.viewModel.dataSource.filter({ field: "TURNO", operator: "equals", value: e.index + 1 })
                 },
                 index: controleTurno
@@ -65,22 +67,20 @@
                                       console.log(controleTurno);
                                       if (controleTurno == 0)
                                           {
-                                          	dataInicial = app.addDays(new Date(), -1);
-                                             
+                                            dataInicial = app.addDays(new Date(), -1);
                                             dataInicial = new Date(dataInicial.getFullYear(), dataInicial.getMonth(), dataInicial.getDate(), 19, 0, 0);
-                                               
                                           }
                                       else
                                           {
                                             if (new Date().getHours() >= 0 && new Date().getHours() < 7)
                                             {
-                                          	dataInicial = app.addDays(new Date(), -1);
+                                            dataInicial = app.addDays(new Date(), -1);
                                             dataInicial = new Date(dataInicial.getFullYear(), dataInicial.getMonth(), dataInicial.getDate(), 7, 0, 0);
 
                                             }
                                             else
                                             {
-                                          	dataInicial = new Date();
+                                            dataInicial = new Date();
                                             dataInicial = new Date(dataInicial.getFullYear(), dataInicial.getMonth(), dataInicial.getDate(), 7, 0, 0);
                                                 
                                             }

@@ -1,15 +1,9 @@
 (function (global) {
     var UnidadesViewModel,
         app = global.app = global.app || {};
-  	var ready;
+  	  var ready;
     
- 
-    
-    
-    
-  
-
-    UnidadesViewModel = kendo.data.ObservableObject.extend({
+        UnidadesViewModel = kendo.data.ObservableObject.extend({
         logo:"",
         onInit: function(e){
             
@@ -35,11 +29,8 @@
             ready = null;
             //window.setTimeout(isOnline(e.dataItem.URL), 3000);
             //isOnline(e.dataItem.URL);
-            
             this.urlExists(e.dataItem.URL, this.handleUnidade, e);
    
- 
-                
         },
         urlExists: function(url, callback, item) {
 
@@ -50,7 +41,6 @@
 			try
                 {
                     $.ajax({
-
                         dataType: "json",
                         url: url + '/ws/relatorio?q=1',
                         success: $.proxy(callback, this, true, item),
@@ -72,14 +62,13 @@
                     console.log(item.dataItem.NAV_SETTINGS);
                     app.appService.viewModel.navDataSource.read({ data: item.dataItem.NAV_SETTINGS });
             		app.application.navigate('views/situacao.html');
+                    
                 }
             	else
-                	 navigator.notification.alert("A unidade está offline");
+              	 navigator.notification.alert("A unidade está offline");
     	}
-         
-             
-    });
-        
+           
+    });   
       
     app.unidadesService = {
         viewModel: new UnidadesViewModel()

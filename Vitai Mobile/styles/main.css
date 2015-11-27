@@ -44,6 +44,14 @@ html{
     width: 130px;
 }
 
+.logo-cvbrj
+{
+    background-image: url("../styles/images/cvb.png");
+    background-repeat: no-repeat;
+    height: 76px;
+    width: 100px;
+}
+
 
 .ti-med-image {
     background-image: url(../styles/images/timed.png);

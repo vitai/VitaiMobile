@@ -39,23 +39,22 @@
             },
             error: handleError  
         }),        
-        dataSourceClass: new kendo.data.DataSource({
+            dataSourceClass: new kendo.data.DataSource({
             transport: { read:  { dataType: "json", timeout: 2000  } },
             sortable:true,
             error: handleError
         }),    
-          dataSourceLeito: new kendo.data.DataSource({
+            dataSourceLeito: new kendo.data.DataSource({
             transport: { read:  { dataType: "json", timeout: 2000  } },
             sortable:true,
             error: handleError
-        }),    
-           
+        }),            
             dataSourcePres: new kendo.data.DataSource({
-            transport: { read:  { dataType: "json", timeout: 6000  } },
+            transport: { read:  { dataType: "json", timeout: 10000  } },
             sortable:true,
             error: handleError
         }),    
-        dataSourceCons: new kendo.data.DataSource({
+            dataSourceCons: new kendo.data.DataSource({
             transport: { read:  { dataType: "json", timeout: 2000  } },
             group: "ORDEM",
             sortable:true,
@@ -108,7 +107,6 @@
             this.dataSourceCons.transport.options.read.url = app.unidadeUrl + "/ws/relatorio?q=17&setorId=" + app.unidadeCorrente.CODIGO;
             this.dataSourcePres.transport.options.read.url = app.unidadeUrl + "/ws/relatorio?q=16&setorId=" + app.unidadeCorrente.CODIGO;
 
-            //this.dataSource.read();
             this.refresh();
 
         }
