@@ -15,7 +15,7 @@ var LoginModel,
                                     {URL: "views/Emergencia/EmergenciaView.html", TITULO:"Emergencia"},
                                     {URL: "views/Login.html", TITULO:"SAIR"}
                                    ]
-              },{ UNIDADEID:3, URL:"http://177.11.0.144:8081/sits", DESCRICAO:"UPA-ROCHA MIRANDA", CODIGO:1,
+              },{ UNIDADEID:3, URL:"http://177.11.0.146:8081/sits", DESCRICAO:"UPA-ROCHA MIRANDA", CODIGO:1,
                       NAV_SETTINGS:[{URL: "views/unidadesView.html", TITULO:"Unidades"},
                                     {URL: "views/ProducaoProfissionalView.html", TITULO:"Produção Profissional"},
                                     {URL: "views/Emergencia/EmergenciaView.html", TITULO:"Emergencia"},
@@ -33,9 +33,24 @@ var LoginModel,
             ] }];
     
    var retornoABBC = [{STATUS:"OK", LOGO: "logo-abbc", PERMISSOES:[{Permissao:"ADM"},{Permissao:"MEDICO"}], UNIDADES:[
-                { UNIDADEID:1, URL:"http://upasantarita.dyndns.info:8080/santarita", DESCRICAO:"UPA-SANTA RITA", CODIGO:1 },
-                { UNIDADEID:2, URL:"http://upaguarabira.no-ip.org:8080/sits", DESCRICAO:"UPA-GUARABIRA", CODIGO:1 },
-                { UNIDADEID:3, URL:"http://179.188.2.93:8080/sits", DESCRICAO:"UPA-BRANGANÇA", CODIGO:1 }
+                { UNIDADEID:1, URL:"http://upasantarita.dyndns.info:8080/santarita", DESCRICAO:"UPA-SANTA RITA", CODIGO:1,
+                      NAV_SETTINGS:[{URL: "views/unidadesView.html", TITULO:"Unidades"},
+                                    {URL: "views/ProducaoProfissionalView.html", TITULO:"Produção Profissional"},
+                                    {URL: "views/Emergencia/EmergenciaView.html", TITULO:"Emergencia"},
+                                    {URL: "views/Login.html", TITULO:"SAIR"}
+                                       ] },
+                { UNIDADEID:2, URL:"http://upaguarabira.no-ip.org:8080/sits", DESCRICAO:"UPA-GUARABIRA", CODIGO:1,
+                      NAV_SETTINGS:[{URL: "views/unidadesView.html", TITULO:"Unidades"},
+                                    {URL: "views/ProducaoProfissionalView.html", TITULO:"Produção Profissional"},
+                                    {URL: "views/Emergencia/EmergenciaView.html", TITULO:"Emergencia"},
+                                    {URL: "views/Login.html", TITULO:"SAIR"}
+                                       ] },
+                { UNIDADEID:3, URL:"http://179.188.2.93:8080/sits", DESCRICAO:"UPA-BRANGANÇA", CODIGO:1,
+                      NAV_SETTINGS:[{URL: "views/unidadesView.html", TITULO:"Unidades"},
+                                    {URL: "views/ProducaoProfissionalView.html", TITULO:"Produção Profissional"},
+                                    {URL: "views/Emergencia/EmergenciaView.html", TITULO:"Emergencia"},
+                                    {URL: "views/Login.html", TITULO:"SAIR"}
+                                       ] }
             ]    }];  
     
     var retornoCVB = [{STATUS:"OK", LOGO: "logo-cvbrj", PERMISSOES:[{Permissao:"ADM"},{Permissao:"MEDICO"}], UNIDADES:[
