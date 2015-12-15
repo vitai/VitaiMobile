@@ -32,6 +32,7 @@
     {
         app.permissoes = null;
         app.usuarioSettings = [];
+        app.unidadeUrl = null;
     }
     
     app.login = function(userSettings){

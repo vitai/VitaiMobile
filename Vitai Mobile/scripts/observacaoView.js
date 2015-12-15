@@ -26,6 +26,7 @@
             that.set("descricaoUnidade", app.unidadeCorrente.DESCRICAO);
             this.set("logo",app.usuarioSettings.LOGO);
             that.dataSource.read();
+            that.dataSource.read();
             
         },
         dataSource: new kendo.data.DataSource({
@@ -37,7 +38,7 @@
                                         var param = {
 
                                             "q":7,
-                                            "setorId":1,
+                                            "setorId": app.unidadeCorrente.CODIGO,
                                             "idSecao": app.observacaoViewService.viewModel.secao
                                         };
                                       return param;

@@ -73,7 +73,7 @@
                                             var param = {
                                                 
                                                 "q":app.consultorioViewService.viewModel.query,
-                                                "setorId":1,
+                                                "setorId":app.unidadeCorrente.CODIGO,
                                                 "risco": app.consultorioViewService.viewModel.risco,
                                                 "pediatrico": app.consultorioViewService.viewModel.consultorioPediatrico, 
                                                 "tipo": app.consultorioViewService.viewModel.tipo
@@ -83,7 +83,7 @@
                                           param = {
                                                 
                                                 "q":app.consultorioViewService.viewModel.query,
-                                                "setorId":1,
+                                                "setorId":app.unidadeCorrente.CODIGO,
                                                 "pediatrico": app.consultorioViewService.viewModel.consultorioPediatrico, 
                                                 "tipo": app.consultorioViewService.viewModel.tipo
                                             };

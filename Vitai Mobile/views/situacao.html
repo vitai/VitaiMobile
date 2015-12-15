@@ -44,17 +44,19 @@
     </div>
     
     <ul  data-auto-bind="false"  data-role="listview" data-style="inset" data-template="situacaoConsultorioTemplate" data-header-template="headerTemplate" data-type="group" data-bind="source: dataSourceCons, events:{dataBound: onListDataboud}"></ul>
+    
     <div class="list-view-wrapper">
         <div  class="helpIcon2" onclick="showHelpText('Percentual de atendimentos que possuíram ao menos um item prescrito do tipo Exame Laboratorial, Exame de Imagem, Cuidados, Nutrição ou Medicamento.')" >
         </div><h2 class="listHeader2" >PRESCRIÇÕES</h2>
         <ul  data-auto-bind="false"  data-role="listview" data-style="inset" data-template="situacaoTemplate" data-bind="source: dataSourcePres"></ul>
     </div>
-        <div class="list-view-wrapper">
+        <!--<div class="list-view-wrapper">
        
         <div  class="helpIcon2" onclick="showHelpText('Pacientes em observação na unidade.')" >
         </div><h2 class="listHeader2" >OBSERVAÇÃO</h2>
-    <ul  data-auto-bind="false"  data-role="listview" data-style="inset" data-template="leitoTemplate" data-bind="source: dataSourceLeito"></ul>
-    </div>
+            </div>    -->
+    <ul  data-auto-bind="false"  data-role="listview" data-style="inset" data-header-template="headerLeitoTemplate" data-template="leitoTemplate" data-bind="source: dataSourceLeito"></ul>
+
     <!--<ul  data-auto-bind="false"  data-role="listview" data-style="inset" data-template="contactsTemplate" 
     data-header-template="headerTemplate" data-type="group" data-bind="source: dataSource, events:{dataBound: onListDataboud}"></ul>-->
     
@@ -121,6 +123,15 @@
      #}#
       
      
+</script>
+
+<script type="text/x-kendo-template" id="headerLeitoTemplate">
+
+    
+    <div data-id="${value}"  class="helpIcon" onclick="showHelp(${value})" >
+    
+    </div><h2 class="listHeader" >${value}</h2>
+    
 </script>
 
 <script type="text/x-kendo-template" id="leitoTemplate">

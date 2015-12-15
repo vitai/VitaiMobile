@@ -60,7 +60,7 @@ var LoginModel,
                                     {URL: "views/Emergencia/EmergenciaView.html", TITULO:"Emergencia"},
                                     {URL: "views/Login.html", TITULO:"SAIR"}
                                        ]
-                              },{ UNIDADEID:2, URL:"http://187.115.163.251:8080/cvb", DESCRICAO:"HOSPITAL TRAUMA", CODIGO:1,
+                              },{ UNIDADEID:2, URL:"http://187.115.163.251:8080/cvb", DESCRICAO:"HOSPITAL TRAUMA", CODIGO:2,
                       NAV_SETTINGS:[{URL: "views/unidadesView.html", TITULO:"Unidades"},
                                     {URL: "views/ProducaoProfissionalView.html", TITULO:"Produção Profissional"},
                                     {URL: "views/Emergencia/EmergenciaView.html", TITULO:"Emergencia"},
@@ -111,7 +111,7 @@ LoginModel = kendo.data.ObservableObject.extend({
            var dataTemp = retornoErro;
            
                  
-       if (this.username == "cvbrj"  && this.password == "cvb123")
+       if (this.username == "cvb"  && this.password == "cvb123")
            {
                dataTemp =  retornoCVB;
            }
@@ -121,7 +121,7 @@ LoginModel = kendo.data.ObservableObject.extend({
                dataTemp =  retornoRioSaude;
             }
            
-       if(this.username == ("ABBC")  && this.password == "abbc123")
+       if(this.username == ("abbc")  && this.password == "abbc123")
            {
                            
                dataTemp =  retornoABBC;    

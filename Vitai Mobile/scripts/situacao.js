@@ -2,9 +2,9 @@
     var SituacaoViewModel,
         app = global.app = global.app || {};
     
-    function handleError()
+    function handleError(e)
     {
-        console.log('erro');
+        console.log(e);
     }
    
     SituacaoViewModel = kendo.data.ObservableObject.extend({
@@ -15,7 +15,6 @@
         },
         refresh: function()
         {
-            //this.dataSource.read();
             this.dataSourceCons.read();
             this.dataSourcePaciente.read();
             this.dataSourcePres.read();
@@ -23,39 +22,41 @@
             this.dataSourceLeito.read();               
         },
         descricaoUnidade: "",
+        dataAtualizacao: "",  
         hasPacientes: false,
-        dataAtualizacao: "",
         observacoes: [],
          dataSourcePaciente: new kendo.data.DataSource({
-            transport: { read:  { dataType: "json", timeout: 2000 } },
+            transport: { read:  { dataType: "json", timeout: 6000 } },
             sortable:true,
             schema: {
             parse: function (response) {
                 
                     if (response.length > 0)
-                        app.situacaoService.viewModel.set("dataAtualizacao", kendo.toString(new Date(), "G"));
+                    app.situacaoService.viewModel.set("dataAtualizacao", kendo.toString(new Date(), "G")); 
+                    
                     return response;
                 }
             },
             error: handleError  
         }),        
-            dataSourceClass: new kendo.data.DataSource({
-            transport: { read:  { dataType: "json", timeout: 2000  } },
+        dataSourceClass: new kendo.data.DataSource({
+            transport: { read:  { dataType: "json", timeout: 6000  } },
             sortable:true,
             error: handleError
         }),    
-            dataSourceLeito: new kendo.data.DataSource({
-            transport: { read:  { dataType: "json", timeout: 2000  } },
+          dataSourceLeito: new kendo.data.DataSource({
+            transport: { read:  { dataType: "json", timeout: 6000  } },
             sortable:true,
             error: handleError
-        }),            
+        }),    
+           
             dataSourcePres: new kendo.data.DataSource({
-            transport: { read:  { dataType: "json", timeout: 10000  } },
+            transport: { read:  { dataType: "json", timeout: 6000  } },
             sortable:true,
             error: handleError
         }),    
-            dataSourceCons: new kendo.data.DataSource({
-            transport: { read:  { dataType: "json", timeout: 2000  } },
+        dataSourceCons: new kendo.data.DataSource({
+            transport: { read:  { dataType: "json", timeout: 6000  } },
             group: "ORDEM",
             sortable:true,
             sort: { field: "ORDEM", dir: "asc" },
@@ -63,8 +64,7 @@
         }),
         onUpdate: function() 
         {
-            var that = this;
-            //that.dataSource.read();
+
             this.refresh();
          
         },
@@ -74,7 +74,7 @@
             var dataView = e.sender.dataSource.view();
             var groups = $(".listHeader");
             for (var i = 0; i < groups.length; i++) {
-                var grupo = dataView[i].items[0].GRUPO;
+                var grupo = dataView[i].items[0].GRUPO; // Erro aqui
                 
                 $(groups[i]).html(grupo);
                 var obs = dataView[i].items[0].OBSERVACAO;
@@ -97,16 +97,15 @@
         },
         onBeforeShowView: function(e)
         {
-            this.set("logo",app.usuarioSettings.LOGO);
-            this.set("descricaoUnidade", app.unidadeCorrente.DESCRICAO);
             
-            //this.dataSource.transport.options.read.url = app.unidadeUrl + "/ws/relatorio?q=3&setorId=" + app.unidadeCorrente.CODIGO;           
+            this.set("descricaoUnidade", app.unidadeCorrente.DESCRICAO);
+            this.set("logo",app.usuarioSettings.LOGO);          
             this.dataSourcePaciente.transport.options.read.url = app.unidadeUrl + "/ws/relatorio?q=15&setorId=" + app.unidadeCorrente.CODIGO;
+            console.log(app.unidadeUrl + "/ws/relatorio?q=15&setorId=" + app.unidadeCorrente.CODIGO);
             this.dataSourceClass.transport.options.read.url = app.unidadeUrl + "/ws/relatorio?q=18&setorId=" + app.unidadeCorrente.CODIGO;       
             this.dataSourceLeito.transport.options.read.url = app.unidadeUrl + "/ws/relatorio?q=19&setorId=" + app.unidadeCorrente.CODIGO;
             this.dataSourceCons.transport.options.read.url = app.unidadeUrl + "/ws/relatorio?q=17&setorId=" + app.unidadeCorrente.CODIGO;
             this.dataSourcePres.transport.options.read.url = app.unidadeUrl + "/ws/relatorio?q=16&setorId=" + app.unidadeCorrente.CODIGO;
-
             this.refresh();
 
         }

@@ -1,7 +1,6 @@
 (function (global) {
     var UnidadesViewModel,
         app = global.app = global.app || {};
-  	  var ready;
     
         UnidadesViewModel = kendo.data.ObservableObject.extend({
         logo:"",
@@ -9,12 +8,10 @@
             
         },
         onViewShow: function(e)
-        {
-            
+        { 
             this.set("logo",app.usuarioSettings.LOGO);
             this.dataSource.read({ data: app.usuarioSettings.UNIDADES});
             var that = this;
-            
         },
         dataSource: new kendo.data.DataSource({
             transport: {
@@ -62,7 +59,6 @@
                     console.log(item.dataItem.NAV_SETTINGS);
                     app.appService.viewModel.navDataSource.read({ data: item.dataItem.NAV_SETTINGS });
             		app.application.navigate('views/situacao.html');
-                    
                 }
             	else
               	 navigator.notification.alert("A unidade está offline");
