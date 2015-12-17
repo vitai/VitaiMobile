@@ -24,7 +24,9 @@
         </tr>
     </table>
     <h4 class="tituloListas">
-        <div data-bind="style: {background-color: riscoColor}, visible:colorIsVisible" class="divRisco20px circle inlineBlock"></div><div id="uiRisco" data-bind="html: risco" class="inlineBlock"></div><div id="uiRisco" class="inlineBlock"> - Tempo Médio (min): </div><div class="inlineBlock" id="uiRisco" data-bind="html: tempoMedio"></div>
+        <div data-bind="style: {background-color: riscoColor}, visible:colorIsVisible" class="divRisco20px circle inlineBlock"></div>
+        <div id="uiRisco" data-bind="html: risco" class="inlineBlock"></div><div id="uiRisco" class="inlineBlock"> - Tempo Médio (min): </div>
+        <div class="inlineBlock" id="uiRisco" data-bind="html: tempoMedio"></div>
         <div class="inlineBlock" id="uiRisco" data-bind="html: meta" style="margin-left: 30px; margin-top: 7px"></div>
         
     </h4>
@@ -32,5 +34,6 @@
 
 </div>
 <script type="text/x-kendo-template" id="consultorioTemplate">
-<div style="float:left">#: data.NMCIDADAO #:</div> <div style="float:right; margin-right:30px"><b>#: data.TEMPO_ESPERA #</b></div>
+<div style="float:left">#: data.NMCIDADAO #:</div> 
+<div style="float:right; margin-right:30px"><b>#: data.TEMPO_ESPERA #</b></div>
 </script>

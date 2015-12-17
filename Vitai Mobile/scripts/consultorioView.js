@@ -24,7 +24,7 @@
            
             var that = this;
             that.set("colorIsVisible", false);
-            this.set("logo",app.usuarioSettings.LOGO);
+            this.set("logo",app.unidadeCorrente.LOGO);
             that.set("risco", e.view.params.risco);
             
             console.log(e.view.params.risco);
@@ -41,7 +41,7 @@
             else  
                 that.set("consultorioPediatrico", "N");
             
-            if (e.view.params.ordem == 2 || e.view.params.ordem == 1) 
+            if (e.view.params.ordem == 2 || e.view.params.ordem == 1 || e.view.params.ordem == 8) 
                 {
                     that.set("colorIsVisible", true);
                     that.set("query", 5);
@@ -73,7 +73,7 @@
                                             var param = {
                                                 
                                                 "q":app.consultorioViewService.viewModel.query,
-                                                "setorId":app.unidadeCorrente.CODIGO,
+                                                "setorId":1,
                                                 "risco": app.consultorioViewService.viewModel.risco,
                                                 "pediatrico": app.consultorioViewService.viewModel.consultorioPediatrico, 
                                                 "tipo": app.consultorioViewService.viewModel.tipo
@@ -83,7 +83,7 @@
                                           param = {
                                                 
                                                 "q":app.consultorioViewService.viewModel.query,
-                                                "setorId":app.unidadeCorrente.CODIGO,
+                                                "setorId":1,
                                                 "pediatrico": app.consultorioViewService.viewModel.consultorioPediatrico, 
                                                 "tipo": app.consultorioViewService.viewModel.tipo
                                             };

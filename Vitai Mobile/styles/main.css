@@ -18,7 +18,18 @@ html{
     display: block;
     margin: 0px auto;
 }
- 
+
+#uiSituacao{
+    position : relative;  
+    margin: 1em;
+    z-index : 2;
+}
+
+#div.k-loading-mask
+{
+    z-index: 3; /* must be larger than the z-index:2 of #container */
+}
+
 .logo-cliente {
     background-image: url(../styles/images/logomarcas.png);
     background-repeat: no-repeat;

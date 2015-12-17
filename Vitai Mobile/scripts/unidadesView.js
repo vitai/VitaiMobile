@@ -29,6 +29,12 @@
             this.urlExists(e.dataItem.URL, this.handleUnidade, e);
    
         },
+        displayLoading : function(target){
+             var element = $(target);
+             kendo.ui.progress(element, true);
+             setTimeout(function(){kendo.ui.progress(element, false); 
+             }, 3000);        
+        },
         urlExists: function(url, callback, item) {
 
             if ( ! $.isFunction(callback)) {
