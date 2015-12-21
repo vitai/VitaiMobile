@@ -23,24 +23,20 @@
         }),
         onListViewChanged: function(e)
         {
+
+            kendo.mobile.application.showLoading();
             ready = null;
-            //window.setTimeout(isOnline(e.dataItem.URL), 3000);
-            //isOnline(e.dataItem.URL);
+
             this.urlExists(e.dataItem.URL, this.handleUnidade, e);
+
    
-        },
-        displayLoading : function(target){
-             var element = $(target);
-             kendo.ui.progress(element, true);
-             setTimeout(function(){kendo.ui.progress(element, false); 
-             }, 3000);        
         },
         urlExists: function(url, callback, item) {
 
             if ( ! $.isFunction(callback)) {
                throw Error('Not a valid callback');
             }   
-            console.log(url + '/ws/relatorio?q=1');
+            
 			try
                 {
                     $.ajax({
@@ -66,8 +62,12 @@
                     app.appService.viewModel.navDataSource.read({ data: item.dataItem.NAV_SETTINGS });
             		app.application.navigate('views/situacao.html');
                 }
-            	else
-              	 navigator.notification.alert("A unidade está offline");
+            	else {
+                     kendo.mobile.application.hideLoading();
+                    navigator.notification.alert("A unidade está offline");
+                }
+            
+              	 
     	}
            
     });   

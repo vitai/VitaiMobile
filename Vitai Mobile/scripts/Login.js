@@ -15,7 +15,7 @@ var LoginModel,
                                     {URL: "views/Emergencia/EmergenciaView.html", TITULO:"Emergencia"},
                                     {URL: "views/Login.html", TITULO:"SAIR"}
                                    ]
-              },{ UNIDADEID:3, URL:"http://177.11.0.146:8081/sits", DESCRICAO:"UPA-ROCHA MIRANDA", CODIGO:1,
+              },{ UNIDADEID:3, URL:"http://187.111.110.114:8081/sits", DESCRICAO:"UPA-ROCHA MIRANDA", CODIGO:1,
                       NAV_SETTINGS:[{URL: "views/unidadesView.html", TITULO:"Unidades"},
                                     {URL: "views/ProducaoProfissionalView.html", TITULO:"Produção Profissional"},
                                     {URL: "views/Emergencia/EmergenciaView.html", TITULO:"Emergencia"},
