@@ -1,4 +1,3 @@
-
 <div   data-role="view"  data-title="Situação" data-layout="main" 
     data-model="app.situacaoService.viewModel" 
     data-bind="events:{beforeShow:onBeforeShowView, init:onInit}"   >
@@ -9,7 +8,6 @@
 			  <a data-role="button" href="#appDrawer" data-rel="drawer" data-align="left" data-icon="drawer-button"></a>
               <span data-role="view-title" style="line-height:1.8em"></span>
               <a data-role="button" data-align="right" data-icon="refresh" data-bind="click: onUpdate" ></a>
-              
           </div>
       </div>
     </div>    
@@ -77,9 +75,6 @@
     
 </div>
 
-
-
-
 <script type="text/x-kendo-template" id="headerTemplate">
 
     
@@ -116,7 +111,6 @@
 <script type="text/x-kendo-template" id="situacaoTemplate">
 
      #if(data.LINKTO && data.VALOR > 0){#
-         
          <a href='views/consultorioView.html?risco=#:data.DESCRICAO#&ordem=#:data.ORDEM#' data-role="list-view-link" >
          <div style="display:inline-block">#: data.DESCRICAO #:</div> <div style="display:inline-block;float:right; margin-right:20px"><b>#: data.VALOR #</b></div>
          </a>

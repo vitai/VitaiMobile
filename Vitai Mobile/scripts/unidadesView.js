@@ -23,13 +23,9 @@
         }),
         onListViewChanged: function(e)
         {
-
             kendo.mobile.application.showLoading();
             ready = null;
-
             this.urlExists(e.dataItem.URL, this.handleUnidade, e);
-
-   
         },
         urlExists: function(url, callback, item) {
 
@@ -65,11 +61,9 @@
             	else {
                      kendo.mobile.application.hideLoading();
                     navigator.notification.alert("A unidade está offline");
-                }
-            
-              	 
+                }              	 
     	}
-           
+          
     });   
       
     app.unidadesService = {

@@ -89,7 +89,6 @@
                     {
                         iconHelp.html('');
                     }
-                
             }
         },
         showHelp: function(e)
@@ -110,6 +109,5 @@
 
     app.situacaoService = {
         viewModel: new SituacaoViewModel()
-    };
-        
+    };      
 })(window);

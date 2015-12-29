@@ -27,7 +27,7 @@
            
             var that = this;
             that.set("colorIsVisible", false);
-            this.set("logo",app.unidadeCorrente.LOGO);
+            this.set("logo",app.usuarioSettings.LOGO);
             that.set("risco", e.view.params.risco);
             
             
