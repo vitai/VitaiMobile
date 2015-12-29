@@ -2,10 +2,7 @@
     var ConsultorioViewModel,
         app = global.app = global.app || {};
    
-    function handleError(e)
-    {
-        console.log(e);
-    }
+    
     var url = "http://177.153.18.165:8081/cerbt/ws/relatorio?q=5&setorId=1&risco=AMARELO&pediatrico=N";
     ConsultorioViewModel = kendo.data.ObservableObject.extend({
         risco: "", // grupo do risco
@@ -29,7 +26,9 @@
             that.set("colorIsVisible", false);
             this.set("logo",app.usuarioSettings.LOGO);
             that.set("risco", e.view.params.risco);
-            
+            console.log(e.view.params.risco);
+            that.set("descricaoUnidade", app.unidadeCorrente.DESCRICAO);
+            console.log(e.view.params.risco);
             
             if (e.view.params.risco == 'VERDE')
                 this.set("meta", "Meta: 60 min");
@@ -37,14 +36,13 @@
                 this.set("meta", "Meta: 30 min");
             else
                 this.set("meta", "");
-            
-            that.set("descricaoUnidade", app.unidadeCorrente.DESCRICAO);
+
             if (e.view.params.ordem == 2 || e.view.params.risco.indexOf("PEDI") > -1)
                 that.set("consultorioPediatrico", "S");
             else  
                 that.set("consultorioPediatrico", "N");
             
-            if (e.view.params.ordem == 2 || e.view.params.ordem == 1 || e.view.params.ordem == 8) 
+            if (e.view.params.ordem == 2 || e.view.params.ordem == 1) 
                 {
                     that.set("colorIsVisible", true);
                     that.set("query", 5);
@@ -69,7 +67,6 @@
         dataSource: new kendo.data.DataSource({
                           transport: {
                                 read:  {
-                                  timeout: 6000,
                                   //url: app.unidadeUrl + "/ws/relatorio",
                                   dataType: "json", // "jsonp" is required for cross-domain requests; use "json" for same-domain requests
                                   data: function() {
@@ -91,7 +88,7 @@
                                                 "pediatrico": app.consultorioViewService.viewModel.consultorioPediatrico, 
                                                 "tipo": app.consultorioViewService.viewModel.tipo
                                             };
-                                      
+                                      console.log(param);
                                       return param;
                                         
                                     }
@@ -99,7 +96,7 @@
                            },            
                             schema: {
                                 parse: function (response) {
-                                    
+                                    console.log(JSON.stringify(response));
                                     if (response)
                                     {
                                         
@@ -120,7 +117,7 @@
                                 
                             }
                           },
-                           error: handleError  ,                    
+                           
                            sortable:true,
                           sort: { field: "TEMPO_ESPERA", dir: "desc" }
                     })

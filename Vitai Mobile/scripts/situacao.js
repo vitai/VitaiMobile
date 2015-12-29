@@ -69,13 +69,13 @@
             this.refresh();
          
         },
-        onListDataboud: function(e) {
+            onListDataboud: function(e) {
             
             
             var dataView = e.sender.dataSource.view();
             var groups = $(".listHeader");
             for (var i = 0; i < groups.length; i++) {
-                var grupo = dataView[i].items[0].GRUPO; // Erro aqui
+                var grupo = dataView[i].items[0].GRUPO;
                 
                 $(groups[i]).html(grupo);
                 var obs = dataView[i].items[0].OBSERVACAO;
@@ -89,10 +89,8 @@
                     {
                         iconHelp.html('');
                     }
+                
             }
-        },
-        showHelp: function(e)
-        {         
         },
         onBeforeShowView: function(e)
         {            
