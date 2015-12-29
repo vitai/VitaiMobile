@@ -9,7 +9,7 @@ var LoginModel,
                                     {URL: "views/Emergencia/EmergenciaView.html", TITULO:"Emergencia"},
                                     {URL: "views/Login.html", TITULO:"SAIR"}
                                    ]
-              },{ UNIDADEID:2, URL:"http://upasc.is-gone.com:8080/sits", DESCRICAO:"UPA-SENADOR CAMARA", CODIGO:1,
+              },{ UNIDADEID:2, URL:"http://187.111.110.117:8080/sits", DESCRICAO:"UPA-SENADOR CAMARA", CODIGO:1,
                      NAV_SETTINGS:[{URL: "views/unidadesView.html", TITULO:"Unidades"},
                                     {URL: "views/ProducaoProfissionalView.html", TITULO:"Produção Profissional"},
                                     {URL: "views/Emergencia/EmergenciaView.html", TITULO:"Emergencia"},
