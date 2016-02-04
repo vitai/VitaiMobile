@@ -11,6 +11,7 @@
         { 
             this.set("logo",app.usuarioSettings.LOGO);
             this.dataSource.read({ data: app.usuarioSettings.UNIDADES});
+            
             var that = this;
         },
         dataSource: new kendo.data.DataSource({
@@ -60,7 +61,7 @@
                 }
             	else {
                      kendo.mobile.application.hideLoading();
-                    navigator.notification.alert("A unidade está offline");
+                     navigator.notification.alert("A unidade está offline");
                 }              	 
     	}
           

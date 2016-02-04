@@ -69,6 +69,16 @@ var LoginModel,
                           }
             ]}];  
      
+   var retornoHMP = [{STATUS:"OK", LOGO: "", PERMISSOES:[{Permissao:"ADM"},{Permissao:"MEDICO"}], UNIDADES:[
+                { UNIDADEID:1, URL:"http://177.153.18.165:8090/sits", DESCRICAO:"HMSPA", CODIGO:1,
+                      NAV_SETTINGS:[{URL: "views/unidadesView.html", TITULO:"Unidades"},
+                                    {URL: "views/ProducaoProfissionalView.html", TITULO:"Produção Profissional"},
+                                    {URL: "views/Emergencia/EmergenciaView.html", TITULO:"Emergencia"},
+                                    {URL: "views/Login.html", TITULO:"SAIR"}
+                                   ]
+              }
+       
+            ] }];
     var retornoErro = [{STATUS:"ERRO"}];
     
 LoginModel = kendo.data.ObservableObject.extend({
@@ -127,6 +137,13 @@ LoginModel = kendo.data.ObservableObject.extend({
                dataTemp =  retornoABBC;    
                
            }
+        if(this.username == ("hmspa")  && this.password == "hmsap123")
+           {
+                           
+               dataTemp =  retornoHMP;    
+               
+           }           
+           
 
            // FIM CODIGO TEMPORARIO
           

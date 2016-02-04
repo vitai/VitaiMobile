@@ -104,12 +104,10 @@
      
          <div class="alerta_vazio"></div><div style="display:inline-block">#: data.DESCRICAO #:</div> <div style="display:inline-block;float:right; margin-right:20px"><b>#: data.VALOR #</b></div>
      #}#
-      
-     
+
 </script>
 
 <script type="text/x-kendo-template" id="situacaoTemplate">
-
      #if(data.LINKTO && data.VALOR > 0){#
          <a href='views/consultorioView.html?risco=#:data.DESCRICAO#&ordem=#:data.ORDEM#' data-role="list-view-link" >
          <div style="display:inline-block">#: data.DESCRICAO #:</div> <div style="display:inline-block;float:right; margin-right:20px"><b>#: data.VALOR #</b></div>
@@ -118,13 +116,10 @@
      
          <div style="display:inline-block">#: data.DESCRICAO #:</div> <div style="display:inline-block;float:right; margin-right:20px"><b>#: data.VALOR #</b></div>
      #}#
-      
-     
 </script>
 
 <script type="text/x-kendo-template" id="headerLeitoTemplate">
 
-    
     <div data-id="${value}"  class="helpIcon" onclick="showHelp(${value})" >
     
     </div><h2 class="listHeader" >${value}</h2>
@@ -143,8 +138,7 @@
      
          <div style="display:inline-block">#: data.DESCRICAO #:</div> <div style="display:inline-block;float:right; margin-right:20px"><b>#: data.VALOR #</b></div>
      #}#
-      
-     
+
 </script>
 
 <script>
@@ -179,4 +173,5 @@
     {
         $("#modalview-help").data("kendoMobileModalView").close();
     }
+    
 </script>
