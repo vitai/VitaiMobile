@@ -28,6 +28,12 @@
     	return new Date(result);
 	}   
     
+    app.closeApp = function(){
+        if(navigator.app.exitApp){
+            navigator.app.exitApp();
+        }
+    }
+    
     app.Logoff = function(){
         app.permissoes = null;
         app.usuarioSettings = [];

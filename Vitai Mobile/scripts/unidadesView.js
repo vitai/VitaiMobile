@@ -5,6 +5,10 @@
     
         UnidadesViewModel = kendo.data.ObservableObject.extend({
         logo:"",
+        
+        onCloseApp: function(e){
+            app.closeApp();
+        },
         onInit: function(e){
             
         },
