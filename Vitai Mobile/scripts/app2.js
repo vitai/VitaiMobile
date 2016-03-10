@@ -28,17 +28,30 @@
     	return new Date(result);
 	}   
     
-    app.Logoff = function()
-    {
+    app.Logoff = function(){
         app.permissoes = null;
         app.usuarioSettings = [];
         app.unidadeUrl = null;
+        
+        if (localStorage) {
+            localStorage.removeItem("accessTokenCacheKey");
+        } else {
+            app["accessTokenCacheKey"] = null;
+        }
     }
     
     app.login = function(userSettings){
-       app.usuarioSettings = userSettings;
-       app.permissoes = userSettings.PERMISSOES;
-       app.application.navigate('views/unidadesView.html'); 
+        app.unidadeUrl = null;
+        app.usuarioSettings = userSettings;
+        app.permissoes = userSettings.PERMISSOES;
+       
+       if (localStorage) {
+            localStorage.setItem("accessTokenCacheKey", JSON.stringify(userSettings));
+        } else {
+            app["accessTokenCacheKey"] = userSettings;
+        }
+       
+        app.application.navigate('views/unidadesView.html'); 
     }
     
     kendo.culture("pt-BR");
@@ -75,13 +88,26 @@
 
         };
         
-        
         kendo.bind($("#appDrawerMenu"), app.appService.viewModel);
         
-
-        app.application = new kendo.mobile.Application(document.body, { skin: 'flat', initial: 'views/Login.html' });
+        var cachedLogin = null;
+        if (localStorage) {
+            cachedLogin = JSON.parse(localStorage.getItem("accessTokenCacheKey"));
+        } else {
+            cachedLogin = app["accessTokenCacheKey"];
+        }
+        
+        if(!cachedLogin){
+            app.application = new kendo.mobile.Application(document.body, { skin: 'flat', initial: 'views/Login.html' });    
+        } else {
+            app.unidadeUrl = null;
+            app.usuarioSettings = cachedLogin;
+            app.permissoes = cachedLogin.PERMISSOES;
+        
+            app.application = new kendo.mobile.Application(document.body, { skin: 'flat', initial: 'views/unidadesView.html' }); 
+        }
+        
         
     }, false);
-    
     
 })(window);
