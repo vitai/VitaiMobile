@@ -1,9 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title></title>
+    <title>Vitai Mobile</title>
     <meta charset="utf-8" />
-    
     
     <link rel="stylesheet" href="http://cdn.kendostatic.com/2015.1.429/styles/kendo.common.min.css" />
     <link rel="stylesheet" href="http://cdn.kendostatic.com/2015.1.429/styles/kendo.default.min.css" />
@@ -13,69 +12,58 @@
     
     <link href="styles/main.css" rel="stylesheet" />
 
-     <script src="cordova.js"></script>
-    
+    <script src="cordova.js"></script>
     <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
-    
     <script src="http://cdn.kendostatic.com/2015.1.429/js/kendo.all.min.js"></script>
-    
     <script src="http://cdn.kendostatic.com/2015.1.429/js/cultures/kendo.culture.pt-BR.min.js"></script>
-    
     <script src="http://cdn.kendostatic.com/2014.2.903/js/angular.min.js"></script>
 
     <script src="scripts/app2.js"></script>
     <script src="scripts/Login.js"></script>
+    <script src="scripts/unidadesView.js"></script>
     <script src="scripts/situacao.js"></script>
     <script src="scripts/consultorioView.js"></script>
     <script src="scripts/observacaoView.js"></script>
-    <script src="scripts/unidadesView.js"></script>
-     <script src="scripts/producaoProfissionalView.js"></script>
+    <script src="scripts/producaoProfissionalView.js"></script>
     <script src="scripts/kanbanView.js"></script>
-    
-    
-
 
 </head>
 <body>
  
-  <div data-role="layout" data-id="main">
-    <div data-role="header">
-      <div data-role="navbar">
-          <div>
-              <span data-role="view-title" style="line-height:1.8em"></span>
-              
-          </div>
-      </div>
-     
- 
+    <div data-role="layout" data-id="main">
+        <div data-role="header">
+            <div data-role="navbar">
+                <div>
+                    <span data-role="view-title" style="line-height:1.8em"></span>
+                </div>
+            </div>
+        </div>
     </div>
-
-  </div>
     
-    <div data-role="drawer" id="appDrawer" style="width: 270px" data-title="Navegação" data-views='["views/situacao.html","views/KanbanView.html","views/ProducaoProfissionalView.html"]'>
-    <div data-role="header">
-      <div data-role="navbar">
-        <span data-role="view-title"></span>
-      </div>
-    </div>
-	<ul data-role="listview">
-      <li>
-        <a href="views/unidadesView.html">Unidades</a>
-      </li>
-      <li>
-        <a href="views/ProducaoProfissionalView.html">Produção Profissional</a>
-      </li>        
-      <li>
-        <a href="views/situacao.html">Situacao</a>
-      </li>
-      <li>
-        <a href="views/Login.html">SAIR</a>
-      </li>
-    </ul>        
+    <div data-role="drawer" id="appDrawer" style="width: 270px" data-title="Navegação" 
+         data-views='["views/situacao.html","views/KanbanView.html","views/ProducaoProfissionalView.html"]'>
         
-  </div> 
-
-    
+        <div data-role="header">
+            <div data-role="navbar">
+                <span data-role="view-title"></span>
+            </div>
+        </div>
+        <ul data-role="listview">
+            <li>
+                <a href="views/unidadesView.html">Unidades</a>
+            </li>
+            <li>
+                <a href="views/ProducaoProfissionalView.html">Produção Profissional</a>
+            </li>        
+            <li>
+                <a href="views/situacao.html">Situacao</a>
+            </li>
+            <li>
+                <a href="views/Login.html">SAIR</a>
+            </li>
+        </ul>        
+        
+    </div> 
 
 </body>
 </html>

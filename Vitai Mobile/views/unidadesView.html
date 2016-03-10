@@ -1,10 +1,12 @@
-<div id="unidadesid"  data-role="view"  data-title="Unidades" data-layout="main"
-    data-model="app.unidadesService.viewModel"  data-bind="events:{beforeShow:onViewShow, init: onInit}">
+<div id="unidadesid" 
+    data-role="view"  data-title="Unidades" data-layout="main"
+    data-model="app.unidadesService.viewModel"  
+    data-bind="events:{beforeShow:onViewShow, init:onInit}">
      
     <div data-role="header">
       <div data-role="navbar">
           <div >
-              <a  data-role="button" data-align="left" href="views/Login.html" data-icon="back-button"></a>
+              <a  data-role="button" data-align="left" href="views/Login.html">Sair</a>
               <span data-role="view-title" style="line-height:1.8em"></span>
           </div>
       </div>
@@ -24,5 +26,5 @@
 </div>
 
 <script type="text/x-kendo-template" id="unidadesTemplate">   
-             <div>#:data.DESCRICAO#</div>
+    <div>#:data.DESCRICAO#</div>
 </script>

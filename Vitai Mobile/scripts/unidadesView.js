@@ -1,4 +1,5 @@
 (function (global) {
+    
     var UnidadesViewModel,
         app = global.app = global.app || {};
     
@@ -9,8 +10,8 @@
         },
         onViewShow: function(e)
         { 
-            this.set("logo",app.usuarioSettings.LOGO);
-            this.dataSource.read({ data: app.usuarioSettings.UNIDADES});
+            this.set("logo", app.usuarioSettings.LOGO);
+            this.dataSource.read({ data: app.usuarioSettings.UNIDADES });
             
             var that = this;
         },
@@ -20,7 +21,7 @@
                     var data = operation.data.data || [];
                     operation.success(data);
                 }
-            }            
+            }
         }),
         onListViewChanged: function(e)
         {

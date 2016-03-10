@@ -1,7 +1,6 @@
-  <div  data-role="view" data-layout="main" data-model="app.LoginService.viewModel" 
-      data-bind="events:{beforeShow:onBeforeShowView}">
-     
-
+<div data-role="view" data-layout="main" 
+     data-model="app.LoginService.viewModel" 
+     data-bind="events:{beforeShow:onBeforeShowView}">
     
     <br />
     <br />
@@ -9,34 +8,30 @@
         <tr>
             <td style="width:100%" >
               <div class="vitailogo">
-                </div>
+              </div>
             </td> 
-           
         </tr>
     </table>
-
     <br />
     <br />
-    <br />
-         
-            <ul data-role="listview" data-style="inset">
-                 <li>
-            <label> Usuario:</label>
-           <input type="text"  data-bind="value: username" />
+    <br />  
+    
+    <form data-bind="events:{submit: onSubmit}">
+        <ul data-role="listview" data-style="inset">    
+            <li>
+                <label> Usuario:</label>
+                <input type="text" data-bind="value: username" />
             </li>
-                 <li>
-            <label>
-            <label> Senha:</label>
-            <input type="password"  data-bind="value: password"  />
-            </label>
+            <li>
+                <label>Senha:</label>
+                <input type="password" data-bind="value: password"  />
             </li>
-                <li>
-                    <button style="width: 100%" data-role="button" data-bind="events:{click: submit}">Entrar</button>
-                </li>
-             </ul>
-        
-          
-       </div>       
+            <li>
+                <button type="submit" style="width: 100%" class="km-widget km-button">Entrar</button>
+            </li>
+        </ul>
+    </form>
+</div>       
   
 <script>
     // reset global drawer instance, for demo purposes
