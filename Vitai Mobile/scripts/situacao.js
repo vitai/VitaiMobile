@@ -51,15 +51,23 @@
             error: handleError
         }),    
             dataSourcePres: new kendo.data.DataSource({
-            transport: { read:  { dataType: "json", timeout: 6000  } },
+            transport: { read:  { dataType: "json", timeout:8000  } },
             sortable:true,
             error: handleError
         }),    
         dataSourceCons: new kendo.data.DataSource({
-            transport: { read:  { dataType: "json", timeout: 4000  } },
-            group: "ORDEM",
+            transport: { read:  { dataType: "json", timeout: 6000  } },
+            group: "GRUPO",
             sortable:true,
-            sort: { field: "ORDEM", dir: "asc" },
+            sort: { field: "GRUPO", dir: "asc" },
+            schema: {
+            parse: function (response) {
+                
+                     console.log(response);
+                    
+                    return response;
+                }
+            },
             error: handleError
         }),
         onUpdate: function() 

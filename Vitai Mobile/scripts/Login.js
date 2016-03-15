@@ -60,7 +60,7 @@ var retornoABBC = [{STATUS:"OK", LOGO: "logo-abbc", PERMISSOES:[{Permissao:"ADM"
     }];  
 
 var retornoCVB = [{STATUS:"OK", LOGO: "logo-cvbrj", PERMISSOES:[{Permissao:"ADM"},{Permissao:"MEDICO"}], UNIDADES:[
-                { UNIDADEID:1, URL:"http://upaed.is-gone.com:8080/sits", DESCRICAO:"UPA-ENGENHO DE DENTRO", CODIGO:1,
+                { UNIDADEID:1, URL:"http://upaengdedentro.dyndns.org:8080/sits", DESCRICAO:"UPA-ENGENHO DE DENTRO", CODIGO:1,
                     NAV_SETTINGS:[{URL: "views/unidadesView.html", TITULO:"Unidades"},
                                 {URL: "views/ProducaoProfissionalView.html", TITULO:"Produção Profissional"},
                                 {URL: "views/Emergencia/EmergenciaView.html", TITULO:"Emergencia"},
