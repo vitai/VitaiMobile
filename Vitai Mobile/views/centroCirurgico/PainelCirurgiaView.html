@@ -1,0 +1,68 @@
+<style scoped>
+      .k-scheduler-table .k-today
+    {
+    	background-color: white !important;
+    }
+</style>
+<div 
+    data-role="view" data-title="Painel de Cirurgias" data-layout="main"
+    data-model="app.painelCirurgiasViewService.viewModel"  
+    data-bind="events:{beforeShow:onViewShow, init:onInit}"
+    >
+
+    <div data-role="header">
+        <div data-role="navbar">
+            <div >
+                <a data-role="button" data-align="left" href="views/centroCirurgico/cirurgiasRealizadasGraficoView.html" data-icon="back-button"></a>
+                <span data-role="view-title" style="line-height:1.8em"></span>
+            </div>
+        </div>
+    </div>
+
+    <div id="scheduler" data-role="scheduler" data-auto-bind="false"
+        data-views="['day', { type: 'day', eventTemplate: $('#event-template').html(), 
+            workDayStart: new Date().Today().addHours(7),
+            workDayEnd: new Date().Today().addHours(19),
+            showWorkHours: true}]"
+         data-group="{resources: ['Salas']}"
+        data-show-work-hours="false"
+        data-editable="false"
+        
+        data-all-day-slot= "false"
+        data-work-day-start= "new Date().Today().addHours(7)"
+        data-resources="[{field: 'secaoId', 
+            name: 'Salas',
+            dataSource: app.painelCirurgiasViewService.viewModel.dataSourceResource}]"
+        data-bind="source: dataSource, events:{dataBound: dataBound, navigate: navigate}"
+        data-template="event-template"></div>	
+</div>
+
+
+<script id="tooltip-template" type="text/x-kendo-template">
+ 	#var uid = target.attr("data-uid");#
+    #var scheduler = target.closest("[data-role=scheduler]").data("kendoScheduler");#
+    #var model = scheduler.occurrenceByUid(uid);
+    if(model) {#
+    	Data: #=kendo.format('{0:d}',model.start)#
+        <strong>Inicio:</strong> #=kendo.format('{0:HH:mm}',model.start)# - <strong>Fim:</strong> #=kendo.format('{0:HH:mm}',model.end)#<br />
+        <div><strong style="font-size:150%">#= model.equipeNome # - #= model.title # </strong></div>
+        <div style="margin:5px;" >
+        	<div style="margin: 5px 0px 2px 0px;" > Paciente: #= model.pacienteNome #, #= model.pacienteSexo #</div>  
+        	<div style="margin: 5px 0px 2px 0px;"> Procedimento: #= model.procedimentoNome # </div> 
+        </div>
+    #} else {#
+        <strong>No event data is available</strong>
+    #}#
+    
+</script>
+
+      <script id="event-template" type="text/x-kendo-template">
+            <div  >
+                <div>
+                    <strong style="font-size:1.0em">#: pacienteNome # - #: equipeNome # - #: title #</strong>
+                </div>
+                <div style="margin:5px;" >
+                    <div style="margin: 5px 0px 2px 0px;"> Procedimento: #: procedimentoNome # </div>
+                </div>
+            </div>
+        </script>

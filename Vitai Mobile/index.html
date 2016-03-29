@@ -8,8 +8,11 @@
     <link rel="stylesheet" href="http://cdn.kendostatic.com/2015.1.429/styles/kendo.default.min.css" />
     <link rel="stylesheet" href="http://cdn.kendostatic.com/2015.1.429/styles/kendo.dataviz.min.css" />
     <link rel="stylesheet" href="http://cdn.kendostatic.com/2015.1.429/styles/kendo.dataviz.default.min.css" />
+    <link rel="stylesheet" href="http://cdn.kendostatic.com/2015.2.624/styles/kendo.common-bootstrap.min.css">
+    <link rel="stylesheet" href="http://cdn.kendostatic.com/2015.2.624/styles/kendo.bootstrap.min.css">     
     <link rel="stylesheet" href="http://cdn.kendostatic.com/2015.1.429/styles/kendo.mobile.all.min.css" />
     
+    <link rel="stylesheet" href="styles/bootstrap/bootstrap.min.css" id="bscss" />
     <link href="styles/main.css" rel="stylesheet" />
 
     <script src="cordova.js"></script>
@@ -26,6 +29,12 @@
     <script src="scripts/observacaoView.js"></script>
     <script src="scripts/producaoProfissionalView.js"></script>
     <script src="scripts/kanbanView.js"></script>
+    <script src="scripts/centroCirurgico/cirurgiasRealizadasGraficoViewModel.js"></script>
+    <script src="scripts/centroCirurgico/listaCirurgiasViewModel.js"></script>
+    <script src="scripts/centroCirurgico/PainelCirurgiaViewModel.js"></script>
+    
+    
+    
 
 </head>
 <body>
@@ -38,6 +47,9 @@
                 </div>
             </div>
         </div>
+        
+     
+        
     </div>
     
     <div data-role="drawer" id="appDrawer" style="width: 270px" data-title="Navegação" 
@@ -64,6 +76,22 @@
         </ul>        
         
     </div> 
+    
+  <div data-model="app.appService.viewModel" data-role="drawer" id="appDrawerDinamico" style="width: 270px" data-title="Navegação" >
+        
+        <div data-role="header">
+            <div data-role="navbar">
+                <span data-role="view-title"></span>
+            </div>
+        </div>
+        <ul  data-role="listview" data-style="inset" 
+            data-template="drawerTemplate" data-bind="source: navDataSource"></ul>
+    </div>     
+    
+<script type="text/x-kendo-template" id="drawerTemplate">
+         <a href='#:data.URL#'>#:data.TITULO#</a>
+</script>
+    
 
 </body>
 </html>

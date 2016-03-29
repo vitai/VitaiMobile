@@ -60,9 +60,10 @@
                 {
         		    app.unidadeCorrente = item.dataItem;
             		app.unidadeUrl = item.dataItem.URL;
-                    console.log(item.dataItem.NAV_SETTINGS);
+                    console.log(app.unidadeCorrente.PAGINA_INICIAL);
                     app.appService.viewModel.navDataSource.read({ data: item.dataItem.NAV_SETTINGS });
-            		app.application.navigate('views/situacao.html');
+                    
+            		app.application.navigate(app.unidadeCorrente.PAGINA_INICIAL);//'views/situacao.html');
                 }
             	else {
                      kendo.mobile.application.hideLoading();

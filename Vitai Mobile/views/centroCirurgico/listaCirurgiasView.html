@@ -1,0 +1,44 @@
+<div 
+    data-role="view" data-title="Lista de Cirurgias" data-layout="main"
+    data-model="app.listaCirurgiasViewService.viewModel"  
+    data-bind="events:{beforeShow:onViewShow, init:onInit}">
+
+    <div data-role="header">
+        <div data-role="navbar">
+            <div >
+                <a data-role="button" data-align="left" href="views/centroCirurgico/cirurgiasRealizadasGraficoView.html" data-icon="back-button"></a>
+                <span data-role="view-title" style="line-height:1.8em"></span>
+            </div>
+        </div>
+    </div>
+
+    <div>
+        <h4 style="display:inline-block">Data:</h4><h4 style="display:inline-block" data-bind="html: selectedDate"></h4>
+    </div>
+<ul data-role="listview" data-type="group"  data-auto-bind="false" data-style="inset" data-template="listaCirurgiaTemplate"  data-bind="source: cirurgiasDs"></ul>
+
+    
+    <script type="text/x-kendo-template" id="listaCirurgiaTemplate">
+    <div ><b>#: data.NMCIDADAO #</b></div> 
+    <div >Status: <b>#: data.STATUS #</b></div>
+        #if(data.CATEGORIA_SUSPENSAO){#
+            <div>Suspensão: <b>#: data.CATEGORIA_SUSPENSAO #</b></div>
+        #}#
+        <div>Tempo de Sala: <b>#: formatMinute(data.TEMPO_SALA )# horas</b></div>        
+    </script>
+    
+
+</div>
+
+<script>
+    function formatMinute(minute)
+    {
+         var hours = Math.floor( minute / 60);          
+        var minutes = minute % 60;    
+        
+        if (minutes < 10)
+            minutes = '0' + minutes;
+        
+        return hours + ":" + minutes;
+    }
+</script>

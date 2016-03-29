@@ -5,26 +5,26 @@ app = global.app = global.app || {};
 
 
 var retornoRioSaude = [{STATUS:"OK", LOGO: "logo-riosaudedefasacivil", PERMISSOES:[{Permissao:"ADM"},{Permissao:"MEDICO"}], UNIDADES:[
-            { UNIDADEID:1, URL:"http://177.124.207.146:8080/sits", DESCRICAO:"CER-BARRA", CODIGO:1,
+            { UNIDADEID:1, URL:"http://177.124.207.146:8080/sits", DESCRICAO:"CER-BARRA", CODIGO:1, PAGINA_INICIAL:"views/situacao.html",
                     NAV_SETTINGS:[{URL: "views/unidadesView.html", TITULO:"Unidades"},
                                 {URL: "views/ProducaoProfissionalView.html", TITULO:"Produção Profissional"},
                                 {URL: "views/Emergencia/EmergenciaView.html", TITULO:"Emergencia"},
                                 {URL: "views/Login.html", TITULO:"SAIR"}
                                 ]
-            },{ UNIDADEID:2, URL:"http://187.111.110.117:8080/sits", DESCRICAO:"UPA-SENADOR CAMARA", CODIGO:1,
+            },{ UNIDADEID:2, URL:"http://187.111.110.117:8080/sits", DESCRICAO:"UPA-SENADOR CAMARA", CODIGO:1,PAGINA_INICIAL:"views/situacao.html",
                     NAV_SETTINGS:[{URL: "views/unidadesView.html", TITULO:"Unidades"},
                                 {URL: "views/ProducaoProfissionalView.html", TITULO:"Produção Profissional"},
                                 {URL: "views/Emergencia/EmergenciaView.html", TITULO:"Emergencia"},
                                 {URL: "views/Login.html", TITULO:"SAIR"}
                                 ]
-            },{ UNIDADEID:3, URL:"http://187.111.110.114:8081/sits", DESCRICAO:"UPA-ROCHA MIRANDA", CODIGO:1,
+            },{ UNIDADEID:3, URL:"http://187.111.110.114:8081/sits", DESCRICAO:"UPA-ROCHA MIRANDA", CODIGO:1,PAGINA_INICIAL:"views/situacao.html",
                     NAV_SETTINGS:[{URL: "views/unidadesView.html", TITULO:"Unidades"},
                                 {URL: "views/ProducaoProfissionalView.html", TITULO:"Produção Profissional"},
                                 {URL: "views/Emergencia/EmergenciaView.html", TITULO:"Emergencia"},
                                 {URL: "views/Login.html", TITULO:"SAIR"}
                                 ]
                         },
-            { UNIDADEID:4, URL:"http://upacdd.is-gone.com:8080/sits", DESCRICAO:"UPA-CIDADE DE DEUS", CODIGO:1,
+            { UNIDADEID:4, URL:"http://upacdd.is-gone.com:8080/sits", DESCRICAO:"UPA-CIDADE DE DEUS", CODIGO:1,PAGINA_INICIAL:"views/situacao.html",
                     NAV_SETTINGS:[{URL: "views/unidadesView.html", TITULO:"Unidades"},
                                 {URL: "views/ProducaoProfissionalView.html", TITULO:"Produção Profissional"},
                                 {URL: "views/Emergencia/EmergenciaView.html", TITULO:"Emergencia"},
@@ -35,21 +35,21 @@ var retornoRioSaude = [{STATUS:"OK", LOGO: "logo-riosaudedefasacivil", PERMISSOE
     }];
 
 var retornoABBC = [{STATUS:"OK", LOGO: "logo-abbc", PERMISSOES:[{Permissao:"ADM"},{Permissao:"MEDICO"}], UNIDADES:[
-            { UNIDADEID:1, URL:"http://upasantarita.dyndns.info:8080/santarita", DESCRICAO:"UPA-SANTA RITA", CODIGO:1,
+            { UNIDADEID:1, URL:"http://upasantarita.dyndns.info:8080/santarita", DESCRICAO:"UPA-SANTA RITA", CODIGO:1,PAGINA_INICIAL:"views/situacao.html",
                     NAV_SETTINGS:[{URL: "views/unidadesView.html", TITULO:"Unidades"},
                                 {URL: "views/ProducaoProfissionalView.html", TITULO:"Produção Profissional"},
                                 {URL: "views/Emergencia/EmergenciaView.html", TITULO:"Emergencia"},
                                 {URL: "views/Login.html", TITULO:"SAIR"}
                                 ] 
             },
-            { UNIDADEID:2, URL:"http://upaguarabira.no-ip.org:8080/sits", DESCRICAO:"UPA-GUARABIRA", CODIGO:1,
+            { UNIDADEID:2, URL:"http://upaguarabira.no-ip.org:8080/sits", DESCRICAO:"UPA-GUARABIRA", CODIGO:1,PAGINA_INICIAL:"views/situacao.html",
                     NAV_SETTINGS:[{URL: "views/unidadesView.html", TITULO:"Unidades"},
                                 {URL: "views/ProducaoProfissionalView.html", TITULO:"Produção Profissional"},
                                 {URL: "views/Emergencia/EmergenciaView.html", TITULO:"Emergencia"},
                                 {URL: "views/Login.html", TITULO:"SAIR"}
                                 ] 
             },
-            { UNIDADEID:3, URL:"http://179.188.2.93:8080/sits", DESCRICAO:"UPA-BRANGANÇA", CODIGO:1,
+            { UNIDADEID:3, URL:"http://179.188.2.93:8080/sits", DESCRICAO:"UPA-BRANGANÇA", CODIGO:1,PAGINA_INICIAL:"views/situacao.html",
                     NAV_SETTINGS:[{URL: "views/unidadesView.html", TITULO:"Unidades"},
                                 {URL: "views/ProducaoProfissionalView.html", TITULO:"Produção Profissional"},
                                 {URL: "views/Emergencia/EmergenciaView.html", TITULO:"Emergencia"},
@@ -60,7 +60,7 @@ var retornoABBC = [{STATUS:"OK", LOGO: "logo-abbc", PERMISSOES:[{Permissao:"ADM"
     }];  
 
 var retornoCVB = [{STATUS:"OK", LOGO: "logo-cvbrj", PERMISSOES:[{Permissao:"ADM"},{Permissao:"MEDICO"}], UNIDADES:[
-                { UNIDADEID:1, URL:"http://upaengdedentro.dyndns.org:8080/sits", DESCRICAO:"UPA-ENGENHO DE DENTRO", CODIGO:1,
+                { UNIDADEID:1, URL:"http://upaengdedentro.dyndns.org:8080/sits", DESCRICAO:"UPA-ENGENHO DE DENTRO", CODIGO:1,PAGINA_INICIAL:"views/situacao.html",
                     NAV_SETTINGS:[{URL: "views/unidadesView.html", TITULO:"Unidades"},
                                 {URL: "views/ProducaoProfissionalView.html", TITULO:"Produção Profissional"},
                                 {URL: "views/Emergencia/EmergenciaView.html", TITULO:"Emergencia"},
@@ -76,7 +76,17 @@ var retornoCVB = [{STATUS:"OK", LOGO: "logo-cvbrj", PERMISSOES:[{Permissao:"ADM"
                 }
         ]
     }];
-    
+
+var retornoPCO = [{STATUS:"OK", LOGO: "", PERMISSOES:[{Permissao:"ADM"},{Permissao:"MEDICO"}], UNIDADES:[
+                { UNIDADEID:1, URL:"http://177.153.18.165:8070/centroCirurgico", DESCRICAO:"HMLJ", CODIGO:1,PAGINA_INICIAL:"views/centroCirurgico/cirurgiasRealizadasGraficoView.html",
+                    NAV_SETTINGS:[{URL: "views/centroCirurgico/cirurgiasRealizadasGraficoView.html", TITULO:"Cirurgias Realizadas"},
+                                {URL: "views/centroCirurgico/PainelCirurgiaView.html", TITULO:"Painel de Cirurgias"},
+                                {URL: "views/Login.html", TITULO:"Logoff"}
+                                ]
+                }
+        ]
+    }];
+        
 var retornoErro = [{STATUS:"ERRO"}];
 
 
@@ -131,6 +141,11 @@ LoginModel = kendo.data.ObservableObject.extend({
         if(this.username == "abbc" && this.password == "abbc123")
         {
             dataTemp = retornoABBC;    
+        }
+        
+        if(this.username == "pco" && this.password == "pco123")
+        {
+            dataTemp = retornoPCO;    
         }
 
         // FIM CODIGO TEMPORARIO

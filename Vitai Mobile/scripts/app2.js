@@ -1,10 +1,27 @@
+
+
 (function (global) {
     var AppModel, app = global.app = global.app || {};
+
+function isDate(myDate) {
+    return myDate.constructor.toString().indexOf("Date") > -1;
+} 
+    
+    Date.prototype.addHours= function(h){
+    this.setHours(this.getHours()+h);
+    return this;
+}
+
+Date.prototype.Today= function(){
+    this.setHours(0,0,0,0);
+    return this;
+}
 
     AppModel = kendo.data.ObservableObject.extend({
         navDataSource: new kendo.data.DataSource({
           	transport: {
             	read: function(operation) {
+                    
                 	var data = operation.data.data || [];
                 	operation.success(data);
             	}
@@ -70,13 +87,16 @@
     document.addEventListener("deviceready", function () {
         navigator.splashscreen.hide();
         
-            document.addEventListener("resume", function(){
-                console.log('resume');
-                if (app.currentViewModel)
-                    app.currentViewModel.refresh();
-            }, false);
+        document.addEventListener("resume", function(){
+            console.log('resume');
+            
+             //app.application.navigate("views/unidadesView.html");
+            //if (app.currentViewModel)
+            //    app.currentViewModel.refresh();
+        }, false);
 
         app.currentViewModel = null;
+       
         
         app.changeSkin = function (e) {
             var mobileSkin = "";
@@ -106,11 +126,12 @@
         if(!cachedLogin){
             app.application = new kendo.mobile.Application(document.body, { skin: 'flat', initial: 'views/Login.html' });    
         } else {
+            
             app.unidadeUrl = null;
             app.usuarioSettings = cachedLogin;
             app.permissoes = cachedLogin.PERMISSOES;
-        
             app.application = new kendo.mobile.Application(document.body, { skin: 'flat', initial: 'views/unidadesView.html' }); 
+            app.application.navigate("views/unidadesView.html");
         }
         
         

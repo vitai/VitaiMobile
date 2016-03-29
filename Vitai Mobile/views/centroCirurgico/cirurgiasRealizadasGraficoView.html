@@ -1,0 +1,93 @@
+<style>
+    .km-arrow-e:after,
+    .km-arrow-e:before
+    {
+        content: "\e000";
+    }
+    .km-arrow-w:after,
+    .km-arrow-wbefore
+    {
+        content: "\e003"
+    }
+    
+    
+</style>
+
+<div   data-role="view" data-title="Cirurgias Realizadas" data-layout="main"
+       data-model="app.cirurgiasRealizadasViewService.viewModel"  
+       data-bind="events:{beforeShow:onViewShow, init:onInit}">
+
+    <div data-role="header">
+        <div data-role="navbar">
+            <div >
+                <a data-role="button" href="#appDrawerDinamico" data-rel="drawer" data-align="left" data-icon="drawer-button"></a>
+                <span data-role="view-title" style="line-height:1.8em"></span>
+            </div>
+        </div>
+    </div>
+    
+    <div data-role="footer" data-bind="visible: isGraficoVisible">
+        <div data-role="tabstrip">
+            <a   data-bind="events: { click: onListaClick }" data-icon="contacts">Lista de Cirurgias</a>
+            <a   data-bind="events: { click: onPainelClick }" data-icon="contacts">Painel de Cirurgias</a>
+        </div>
+    </div>
+
+    <div style="text-align:center" >
+        <div style="margin: 2px">
+            <span>Data</span>
+            <input data-role="datepicker"
+                   data-bind="value: selectedDate,
+                   events: { change: onDateChange }"
+                   style="width:125px; margin-right:10px" />
+                 
+            <button data-role="button" data-bind="events: { click: onTodayClick }" >Hoje</button>
+            <!--<button data-role="button" data-icon="arrow-w" data-bind="events: { click: onPreviousDateClick}"></button>
+            <button data-role="button" data-icon="arrow-e" data-bind="events: { click: onNextDateClick}"></button>-->
+                
+        </div>
+    </div>
+
+    <div data-bind="visible: isGraficoVisible">
+
+        <div class="chart-wrapper">
+            <div data-role="chart"
+                 data-series-defaults='{ type: "pie", labels:{visible: true, template: "#= category #: \n #= kendo.format(\"{0:p}\", percentage)# \n Qtd: #= value #"} }'
+                 data-title="{ text: 'Cirurgias realizadas por status', position: 'top' }"
+                 data-legend='{visible: false, position: "top"}' 
+                 data-series="[{
+                 field: 'QUANTIDADE',
+                 categoryField: 'STATUS',
+                 padding: 60
+                 }]"
+                 data-bind="source: graficoDs",
+                 style="width:100%; height:300px">
+
+            </div>
+        </div>
+        
+        <ul data-role="listview" data-style="inset">
+            <li>
+                <h4 style="float:left">Total de Cirurgias Realizadas:</h4>
+                <span class="badge" data-bind="html: qtdRealizada" style="float:right;margin-top: 10px;"></span>
+            </li>
+            <li>
+                <span><h4 style="float:left">Total de Cirurgias Planejadas:</h4></span>
+                <span class="badge" data-bind="html: qtdPlanejadas" style="float:right;margin-top: 10px;"></span>
+                
+            </li>        
+            <li>
+                <span><h4 style="float:left">% Realizadas x Planejadas:</h4></span>
+                <span class="badge" data-bind="html: percPlanejadaRealizada" style="float:right;margin-top: 10px;"></span>
+            </li>
+        </ul>        
+        
+
+
+</div>
+</div>
+<script>
+    $(window).on("resize", function() {
+        kendo.resize($(".chart-wrapper"));
+    });
+</script> 
