@@ -78,7 +78,7 @@ Date.prototype.Today= function(){
     }
     
     kendo.culture("pt-BR");
-    app.unidadeUrl = "http://177.124.207.146:8080/sits";
+    app.unidadeUrl = null;
     app.usuarioSettings = [];
     app.permissoes = null;
     app.currentViewModel = null;
@@ -89,8 +89,9 @@ Date.prototype.Today= function(){
         
         document.addEventListener("resume", function(){
             console.log('resume');
-            
-             //app.application.navigate("views/unidadesView.html");
+            if (localStorage) 
+             if (localStorage.getItem("accessTokenCacheKey"))
+                 app.application.navigate("views/unidadesView.html");
             //if (app.currentViewModel)
             //    app.currentViewModel.refresh();
         }, false);

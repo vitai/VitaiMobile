@@ -34,10 +34,10 @@
                  this.dsPaciente.fetch(function(){});
                  console.log(this.dataAtualizacao);
              },
-             dataAtualizacao: window.localStorage.getItem("dataAtualizacao"),
+             dataAtualizacao: window..getItem("dataAtualizacao"),
               title: 'Situação',
               /*dsPaciente: new kendo.data.DataSource({
-                    data: window.localStorage.getItem("offlineDataSource"),
+                    data: window..getItem("offlineDataSource"),
                     schema: {
                     parse: function (response) {
                         return $.parseJSON(response);
@@ -47,7 +47,7 @@
             }),*/
             dsPaciente: ds,             
               dsLeito: new kendo.data.DataSource({
-                    data: window.localStorage.getItem("offlineDataSource"),
+                    data: window..getItem("offlineDataSource"),
                     schema: {
                     parse: function (response) {
                         return $.parseJSON(response);
@@ -57,7 +57,7 @@
                     
             }),
               dsPrescricao: new kendo.data.DataSource({
-                    data: window.localStorage.getItem("offlineDataSource"),
+                    data: window..getItem("offlineDataSource"),
                     schema: {
                     parse: function (response) {
                         return $.parseJSON(response);
@@ -108,16 +108,16 @@
     document.addEventListener('deviceready', function () {  
         
         
-        if (window.localStorage.getItem("offlineDataSource") == null)
+        if (window..getItem("offlineDataSource") == null)
             {
                 updateDataSource();
             }
         else
             {
                 
-                if (window.localStorage.getItem("dataAtualizacao") != null)
+                if (window..getItem("dataAtualizacao") != null)
                     {
-                        $("#divAtualizacao").html(window.localStorage.getItem("dataAtualizacao"));
+                        $("#divAtualizacao").html(window..getItem("dataAtualizacao"));
                     }
                     
                 else

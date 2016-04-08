@@ -20,6 +20,7 @@
             this.dataSourcePres.read();
             this.dataSourceClass.read();
             this.dataSourceLeito.read();               
+            this.graficoDs.read();
         },
         descricaoUnidade: "",
         dataAtualizacao: "",  
@@ -70,6 +71,27 @@
             },
             error: handleError
         }),
+        graficoDs: new kendo.data.DataSource({
+            transport: {
+                    read: {
+                        url: function(){return app.unidadeUrl + "/ws/relatorio?q=41&setorId=" + app.unidadeCorrente.CODIGO} ,
+                        timeout:5000,
+                        dataType: "json"
+                    }
+           
+           },
+            schema: {
+              parse: function (response) {
+
+
+               	console.log(response);
+                  return response;
+
+              }
+            },
+            error: handleError    
+        }),
+
         onUpdate: function() 
         {
 

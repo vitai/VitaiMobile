@@ -57,7 +57,64 @@
 
     <!--<ul  data-auto-bind="false"  data-role="listview" data-style="inset" data-template="contactsTemplate" 
     data-header-template="headerTemplate" data-type="group" data-bind="source: dataSource, events:{dataBound: onListDataboud}"></ul>-->
-    
+
+            <div class="chart-wrapper">
+            <div data-role="chart"
+                data-legend="{visible:false, position:'bottom'}"
+                data-title="{text:'Registrados por Risco(24h)'}"
+                 data-series="[
+                  {
+                    name: 'Verde',
+                    field:'VERDE',
+                    color: 'green',
+                    labels: {
+                       visible: true,
+                      position: 'center'
+                    }
+                  
+                	},
+                  {
+                    name: 'Azul',
+                    field:'AZUL',
+                    color: 'blue',
+                    labels: {
+                       visible: true,
+                      position: 'center'
+                    }
+                    
+                	},
+                  {
+                    name: 'Amarelo',
+                    field:'AMARELO',
+                    color: 'yellow',
+                    labels: {
+                       visible: true,
+                      position: 'center'
+                    }
+                  
+                	},
+                  {
+                    name: 'Vermelho',
+                    field:'VERMELHO',
+                    color: 'red',
+                    labels: {
+                       visible: true
+                    }
+                  
+                	}]" 
+                  data-category-axis= "{field:'SIGLA'}"
+                
+                  data-value-axis="[{
+                    name: 'Quantidade',
+                    title: {
+                        text: 'Quantidade'
+                    }
+                }"
+                data-auto-bind="false"
+                   data-bind="source: graficoDs"
+                  ></div>
+        </div>
+
 </div>
 
 <div data-role="modalview" id="modalview-help" style="width: 90%;">

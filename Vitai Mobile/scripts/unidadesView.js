@@ -5,7 +5,7 @@
     
         UnidadesViewModel = kendo.data.ObservableObject.extend({
         logo:"",
-        
+        indicadoreIsVisible:false,
         onCloseApp: function(e){
             app.closeApp();
         },
@@ -15,6 +15,7 @@
         onViewShow: function(e)
         { 
             this.set("logo", app.usuarioSettings.LOGO);
+            this.set("indicadoreIsVisible", app.usuarioSettings.MOSTRA_INDICADORES);
             this.dataSource.read({ data: app.usuarioSettings.UNIDADES });
             
             var that = this;

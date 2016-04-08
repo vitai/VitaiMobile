@@ -1,0 +1,63 @@
+<style>
+    .km-arrow-e:after,
+    .km-arrow-e:before
+    {
+        content: "\e000";
+    }
+    .km-arrow-w:after,
+    .km-arrow-wbefore
+    {
+        content: "\e003"
+    }
+
+     #chartPercentualRedirecionado circle {
+        display: none !important;
+         
+    }
+
+    
+</style>
+
+<div   data-role="view" data-title="% Rediracionados" data-layout="main"
+       data-model="app.graficoPercentualRedirecionamentoViewService.viewModel"  
+       data-bind="events:{beforeShow:onViewShow, init:onInit}">
+
+    <div data-role="header">
+        <div data-role="navbar">
+            <div >
+                <a data-role="button" href="#appDrawerIndicadores" data-rel="drawer" data-align="left" data-icon="drawer-button"></a>
+                <span data-role="view-title" style="line-height:1.8em"></span>
+				<a data-role="button" data-align="right" data-icon="refresh" data-bind="click: onUpdate" ></a>            </div>
+        </div>
+    </div>
+    
+
+    <div >
+
+        
+        <div class="chart-wrapper">
+            <div data-role="chart" id="chartPercentualRedirecionado"
+                 data-theme="bootstrap"
+                 data-title="{text:'%Redirecionamento (ultimos 10 dias)'}"
+                data-legend="{position:'bottom'}"
+                 data-series-default="{markers:{visible:false}}"
+                data-series="[{type:'line', field:'PERCENTUAL_REDIRECIONAMENTO', name:'#= group.value #', color:'COR'}, {type:'line', data:[30,30,30,30,30,30,30,30,30,30,30], name:'Meta', visibleInLegend:false, color:'black'}]"
+                data-category-axis="{field: 'DATA', labels:{format:'dd/MM', rotation:'-90'}}"
+                data-value-axis="{labels:{format:'{0}%'}}"
+                data-bind="source: graficoDs, events:{dataBound:onChartDataBound}"
+            ></div>
+        </div>
+        <div style="font-size:90%; color:gray; padding:2px">
+            <span style="margin-right:5px">Ultima atualização:</span><span data-bind='html: dataAtualizacao'></span>
+        </div>
+       
+        
+
+
+</div>
+</div>
+<script>
+    $(window).on("resize", function() {
+        kendo.resize($(".chart-wrapper"));
+    });
+</script> 

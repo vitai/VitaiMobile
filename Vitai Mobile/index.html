@@ -32,6 +32,9 @@
     <script src="scripts/centroCirurgico/cirurgiasRealizadasGraficoViewModel.js"></script>
     <script src="scripts/centroCirurgico/listaCirurgiasViewModel.js"></script>
     <script src="scripts/centroCirurgico/PainelCirurgiaViewModel.js"></script>
+    <script src="scripts/Emergencia/graficoRegistradorRedirecionadosViewModel.js"></script>
+    <script src="scripts/Emergencia/graficoPercentualRedirecionamentoViewModel.js"></script>
+    
     
     
     
@@ -62,7 +65,7 @@
         </div>
         <ul data-role="listview">
             <li>
-                <a href="views/unidadesView.html">Unidades</a>
+                <a href="views/unidadesView.html">Pagina Inicial</a>
             </li>
             <li>
                 <a href="views/ProducaoProfissionalView.html">Produção Profissional</a>
@@ -77,7 +80,8 @@
         
     </div> 
     
-  <div data-model="app.appService.viewModel" data-role="drawer" id="appDrawerDinamico" style="width: 270px" data-title="Navegação" >
+  <div data-model="app.appService.viewModel" data-role="drawer" id="appDrawerDinamico" style="width: 270px" data-title="Navegação" 
+      data-views='["views/centroCirurgico/cirurgiasRealizadasGraficoView.html"]'>
         
         <div data-role="header">
             <div data-role="navbar">
@@ -86,6 +90,31 @@
         </div>
         <ul  data-role="listview" data-style="inset" 
             data-template="drawerTemplate" data-bind="source: navDataSource"></ul>
+    </div>     
+    
+    
+    <div data-role="drawer" id="appDrawerIndicadores" style="width: 270px" data-title="Navegação" 
+         data-views='["views/Emergencia/graficoRegistradorRedirecionadosView.html","views/Emergencia/graficoPercentualRedirecionamentoView.html"]'>
+        
+        <div data-role="header">
+            <div data-role="navbar">
+                <span data-role="view-title"></span>
+            </div>
+        </div>
+        <ul data-role="listview">
+            <li>
+                <a href="views/unidadesView.html">Pagina Inicial</a>
+            </li>
+            <li>
+               <a href="views/Emergencia/graficoPercentualRedirecionamentoView.html"  >
+                  % Redirecionamentos
+               </a>
+            </li>
+            <li>
+                <a href="views/Login.html">Fazer logoff</a>
+            </li>
+        </ul>        
+        
     </div>     
     
 <script type="text/x-kendo-template" id="drawerTemplate">

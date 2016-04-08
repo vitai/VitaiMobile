@@ -1,0 +1,132 @@
+<style>
+    .km-arrow-e:after,
+    .km-arrow-e:before
+    {
+        content: "\e000";
+    }
+    .km-arrow-w:after,
+    .km-arrow-wbefore
+    {
+        content: "\e003"
+    }
+    
+    
+</style>
+
+<div   data-role="view" data-title="Registrados x Rediracionados" data-layout="main"
+       data-model="app.graficoRegistradorRedirecionadosViewService.viewModel"  
+       data-bind="events:{beforeShow:onViewShow, init:onInit}">
+
+    <div data-role="header">
+        <div data-role="navbar">
+            <div >
+                <a data-role="button" href="#appDrawerIndicadores" data-rel="drawer" data-align="left" data-icon="drawer-button"></a>
+                <span data-role="view-title" style="line-height:1.8em"></span>
+            </div>
+        </div>
+    </div>
+    
+
+    <div >
+
+        <div class="chart-wrapper">
+            <div data-role="chart"
+                data-legend="{position:'bottom'}"
+                data-title="{text:'Qtde Registrados e %Redirecionado (ultimas 24h)'}"
+                 data-series="[
+									{name: 'Não Classificado',field:'NAO_CLASSIFICADO',color: 'white',                    
+                    labels: {visible: true, position: 'center' },
+                    stack: true
+                	},                  
+                  {
+                    name: 'Verde',
+                    field:'VERDE',
+                    color: 'green',
+                    labels: {
+                       visible: true,
+                      position: 'center'
+                    },
+                    stack: true
+                  
+                	},
+                  {
+                    name: 'Azul',
+                    field:'AZUL',
+                    color: 'blue',
+                    labels: {
+                       visible: true,
+                      position: 'center'
+                    },
+                    stack: true
+                    
+                	},
+                  {
+                    name: 'Amarelo',
+                    field:'AMARELO',
+                    color: 'yellow',
+                    labels: {
+                       visible: true,
+                      position: 'center'
+                    },
+                    stack: true
+                  
+                	},
+                  {
+                    name: 'Vermelho',
+                    field:'VERMELHO',
+                    color: 'red',
+                    labels: {
+                       visible: true
+                    },
+                    stack: true
+                  
+                	},
+                  {
+                    name: '%Redirecionados',
+                     type: 'line',
+                    field:'PERCENTUAL_REDIRECIONAMENTO',
+                    axis:'Redirecionados'
+                    
+                },
+                  {
+                    
+                    name: '%Meta',
+                    type: 'line',
+                    data:[30],
+                    axis:'Redirecionados'
+                    
+                }]" 
+                   data-category-axis= "{field:'SIGLA' , axisCrossingValue: [0, 10]}"
+                
+                  data-value-axis="[{
+                    name: 'Quantidade',
+                    title: {
+                        text: 'Quantidade'
+                    }
+                }, {
+                    name: 'Redirecionados',
+                    title: {
+                        text: 'Percentual Redirecionados'
+                    },
+                  labels: {
+            				format: '{0}%'
+        					},
+                   	min: 0,
+                    max: 100
+                }]"
+                data-auto-bind="false"
+                   data-bind="source: graficoDs"
+                  ></div>
+        </div>
+        
+       
+        
+
+
+</div>
+</div>
+<script>
+    $(window).on("resize", function() {
+        kendo.resize($(".chart-wrapper"));
+    });
+</script> 
