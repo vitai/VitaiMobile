@@ -24,7 +24,7 @@ var retornoRioSaude = [{STATUS:"OK", MOSTRA_INDICADORES:true, LOGO: "logo-riosau
                                 {URL: "views/Login.html", TITULO:"SAIR"}
                                 ]
                         },
-            { UNIDADEID:4, URL:"http://177.87.245.86:8080/sits", DESCRICAO:"UPA-CIDADE DE DEUS", CODIGO:1,PAGINA_INICIAL:"views/situacao.html",
+            { UNIDADEID:4, URL:"http://upacdd.is-gone.com:8080/sits", DESCRICAO:"UPA-CIDADE DE DEUS", CODIGO:1,PAGINA_INICIAL:"views/situacao.html",
                     NAV_SETTINGS:[{URL: "views/unidadesView.html", TITULO:"Unidades"},
                                 {URL: "views/ProducaoProfissionalView.html", TITULO:"Produção Profissional"},
                                 {URL: "views/Emergencia/EmergenciaView.html", TITULO:"Emergencia"},

@@ -18,7 +18,7 @@
     
 </style>
 
-<div   data-role="view" data-title="% Rediracionados" data-layout="main"
+<div   data-role="view" data-title="% Redirecionados" data-layout="main"
        data-model="app.graficoPercentualRedirecionamentoViewService.viewModel"  
        data-bind="events:{beforeShow:onViewShow, init:onInit}">
 
@@ -45,6 +45,7 @@
                 data-category-axis="{field: 'DATA', labels:{format:'dd/MM', rotation:'-90'}}"
                 data-value-axis="{labels:{format:'{0}%'}}"
                 data-bind="source: graficoDs, events:{dataBound:onChartDataBound}"
+                data-auto-bind="false"
             ></div>
         </div>
         <div style="font-size:90%; color:gray; padding:2px">

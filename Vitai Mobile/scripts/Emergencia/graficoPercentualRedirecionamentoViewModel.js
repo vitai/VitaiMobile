@@ -15,7 +15,7 @@
         onViewShow: function(e)
         {
             kendo.mobile.application.showLoading();
-            //this.graficoDs.read();
+            this.graficoDs.read();
         },
         onUpdate: function(e){
             kendo.mobile.application.showLoading();
