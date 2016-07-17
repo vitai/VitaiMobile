@@ -20,29 +20,36 @@
         },        
         onViewShow: function(e)
         {
-
+            this.refresh();
+        },
+        refresh:function(e){
+             kendo.mobile.application.showLoading();
+            this.graficoCirurgiaPlanejadaDs.read();
+            this.graficoCirurgiaEncaixadasDs.read();
+            this.quantidadeCirurgiaDs.read();
+            
         },
         onDateChange: function(e){
-            kendo.mobile.application.showLoading();
-             this.graficoDs.read();
+            this.refresh();
+            
         },
         onTodayClick: function(e){
-            kendo.mobile.application.showLoading();
+           
              this.set("selectedDate", new Date());
-             this.graficoDs.read();
+             this.refresh();
         },
         onPreviousDateClick: function(e){
             var data = kendo.parseDate(this.get("selectedDate"));
             data.setDate(data.getDate() - 1);
             this.set("selectedDate", data);
-            this.graficoDs.read();
+             this.refresh();
             
         },
         onNextDateClick: function(e){
             var data = kendo.parseDate(this.get("selectedDate"));
             data.setDate(data.getDate() + 1);
              this.set("selectedDate", data);
-             this.graficoDs.read();
+              this.refresh();
             
         },
         onPainelClick: function(e){
@@ -53,6 +60,10 @@
            app.application.navigate("views/centroCirurgico/listaCirurgiasView.html?data="+this.get("selectedDate"));
             
         },
+        handleError:function(e){
+             alert(e);  
+        },
+        
        dataUltimoMapaRealizadoDs: new kendo.data.DataSource({
               transport: {
                     read:  {
@@ -76,7 +87,8 @@
                         if (response && response.length > 0)
                         {
                             app.cirurgiasRealizadasViewService.viewModel.set("selectedDate", response[0].DATA);
-                            app.cirurgiasRealizadasViewService.viewModel.graficoDs.read();
+                            app.cirurgiasRealizadasViewService.viewModel.set("isGraficoVisible", true);
+                            app.cirurgiasRealizadasViewService.viewModel.refresh();
                             return response;
                         }
                         else
@@ -85,7 +97,7 @@
                 }
               }
         }),        
-        graficoDs: new kendo.data.DataSource({
+        quantidadeCirurgiaDs: new kendo.data.DataSource({
               transport: {
                     read:  {
                       url: function(){
@@ -95,7 +107,7 @@
                       data: function() {
                           
                             var param = {
-                                "q":10048,
+                                "q":10070,
                                 "data": kendo.toString(app.cirurgiasRealizadasViewService.viewModel.get("selectedDate"), "dd/MM/yyyy")
                             };
                               
@@ -111,11 +123,84 @@
                         app.cirurgiasRealizadasViewService.viewModel.set("isGraficoVisible", false);
                         if (response && response.length > 0)
                         {
+                            console.log(response);
                             app.cirurgiasRealizadasViewService.viewModel.set("isGraficoVisible", true);
-                            app.cirurgiasRealizadasViewService.viewModel.set("qtdPlanejadas", response[0].QTD_PLANEJADA);
-                            app.cirurgiasRealizadasViewService.viewModel.set("qtdRealizada", response[0].QTD_REALIZADA);
-                            app.cirurgiasRealizadasViewService.viewModel.set("percPlanejadaRealizada", kendo.toString(response[0].QTD_REALIZADA / response[0].QTD_PLANEJADA, "p") );
+                            //app.cirurgiasRealizadasViewService.viewModel.set("qtdPlanejadas", response[0].QTD_PLANEJADA);
+                            //app.cirurgiasRealizadasViewService.viewModel.set("qtdRealizada", response[0].QTD_REALIZADA);
+                            //app.cirurgiasRealizadasViewService.viewModel.set("percPlanejadaRealizada", kendo.toString(response[0].QTD_REALIZADA / response[0].QTD_PLANEJADA, "p") );
                             
+                            return response;
+                        }
+                        else
+                            return [];
+                    
+                }
+              }
+        }),        
+        graficoCirurgiaEncaixadasDs: new kendo.data.DataSource({
+              transport: {
+                    read:  {
+                      url: function(){
+                          return app.unidadeUrl + "/ws/relatorio";  
+                      },
+                      dataType: "json", // "jsonp" is required for cross-domain requests; use "json" for same-domain requests
+                      data: function() {
+                          
+                            var param = {
+                                "q":10064,
+                                "data": kendo.toString(app.cirurgiasRealizadasViewService.viewModel.get("selectedDate"), "dd/MM/yyyy"),
+                                "tipo": "ENCAIXADO"
+                            };
+                               
+                              return param;
+                            
+                        }
+                    }
+               },            
+                schema: {
+                    parse: function (response) {
+                        kendo.mobile.application.hideLoading();
+                        app.cirurgiasRealizadasViewService.viewModel.set("isGraficoVisible", false);
+                        if (response && response.length > 0)
+                        {
+                            app.cirurgiasRealizadasViewService.viewModel.set("isGraficoVisible", true);
+                             console.log('graficoCirurgiaEncaixadasDs');
+                            return response;
+                        }
+                        else
+                            return [];
+                    
+                }
+              }
+        }),
+        graficoCirurgiaPlanejadaDs: new kendo.data.DataSource({
+              transport: {
+                    read:  {
+                      url: function(){
+                          return app.unidadeUrl + "/ws/relatorio";  
+                      },
+                      dataType: "json", // "jsonp" is required for cross-domain requests; use "json" for same-domain requests
+                      data: function() {
+                          
+                            var param = {
+                                "q":10064,
+                                "data": kendo.toString(app.cirurgiasRealizadasViewService.viewModel.get("selectedDate"), "dd/MM/yyyy"),
+                                "tipo": "PLANEJADO"
+                            };
+                               
+                              return param;
+                            
+                        }
+                    }
+               },            
+                schema: {
+                    parse: function (response) {
+                        kendo.mobile.application.hideLoading();
+                        app.cirurgiasRealizadasViewService.viewModel.set("isGraficoVisible", false);
+                        if (response && response.length > 0)
+                        {
+                            app.cirurgiasRealizadasViewService.viewModel.set("isGraficoVisible", true);
+                            console.log('graficoCirurgiaPlanejadaDs'); 
                             return response;
                         }
                         else

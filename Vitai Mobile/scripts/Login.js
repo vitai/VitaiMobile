@@ -5,7 +5,7 @@ app = global.app = global.app || {};
 
 
 var retornoRioSaude = [{STATUS:"OK", MOSTRA_INDICADORES:true, LOGO: "logo-riosaudedefasacivil", PERMISSOES:[{Permissao:"ADM"},{Permissao:"MEDICO"}], UNIDADES:[
-            { UNIDADEID:1, URL:"http://177.124.207.146:8080/sits", DESCRICAO:"CER-BARRA", CODIGO:1, PAGINA_INICIAL:"views/situacao.html",
+            { UNIDADEID:1, URL:"http://187.111.110.131:8080/sits", DESCRICAO:"CER-BARRA", CODIGO:1, PAGINA_INICIAL:"views/situacao.html",
                     NAV_SETTINGS:[{URL: "views/unidadesView.html", TITULO:"Unidades"},
                                 {URL: "views/ProducaoProfissionalView.html", TITULO:"Produção Profissional"},
                                 {URL: "views/Emergencia/EmergenciaView.html", TITULO:"Emergencia"},
@@ -98,6 +98,17 @@ var retornoHMSPA = [{STATUS:"OK", MOSTRA_INDICADORES:false, LOGO: "", PERMISSOES
         ]
     }];
     
+var retornoUPASPDA = [{STATUS:"OK", MOSTRA_INDICADORES:false, LOGO: "", PERMISSOES:[{Permissao:"ADM"},{Permissao:"MEDICO"}], UNIDADES:[
+                { UNIDADEID:1, URL:"http://upaspda.is-gone.com:8080/sits", DESCRICAO:"UPA-SPDA", CODIGO:1,PAGINA_INICIAL:"views/situacao.html",
+                     NAV_SETTINGS:[{URL: "views/unidadesView.html", TITULO:"Unidades"},
+                                {URL: "views/ProducaoProfissionalView.html", TITULO:"Produção Profissional"},
+                                {URL: "views/Emergencia/EmergenciaView.html", TITULO:"Emergencia"},
+                                {URL: "views/Login.html", TITULO:"SAIR"}
+                                ] 
+                }
+        ]
+    }];    
+    
 
 var retornoErro = [{STATUS:"ERRO"}];
 
@@ -163,6 +174,11 @@ LoginModel = kendo.data.ObservableObject.extend({
         if(this.username == "hmspa" && this.password == "hmspa123")
         {
             dataTemp = retornoHMSPA;    
+        }
+        
+        if(this.username == "upaspda" && this.password == "upaspda123")
+        {
+            dataTemp = retornoUPASPDA;    
         }
 
         // FIM CODIGO TEMPORARIO

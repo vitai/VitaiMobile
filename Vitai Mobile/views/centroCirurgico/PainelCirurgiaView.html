@@ -3,6 +3,67 @@
     {
     	background-color: white !important;
     }
+    
+    .legenda{
+    	height: 35px;
+    	text-align:center !important;
+    }
+    
+    .legenda span{
+    	font-weight: bold;
+    	line-height: 35px;
+    	font-size:10px;
+    	
+    }
+    
+    .suspensaNoCC{
+    	background-color: rgb(255, 200, 0);
+    }
+
+    .suspensaForaCC{
+    	background-color: rgb(255, 145, 0);
+    }
+    
+    .planejada{
+    	background-color: rgb(211, 211, 211);
+    	
+    }
+    
+    .checkInCC{
+    	background-color: rgb(169, 169, 169);
+    }
+    
+    .entradaSala{
+    	background-color:	rgb(98, 176, 255);
+    }
+    
+    .inicioCirurgia{
+    	background-color: rgb(0, 88, 176);
+    }
+    
+    .fimCirurgia{
+    	background-color:rgb(144, 238, 144);
+    }
+    
+    .saidaSala{
+    	background-color:rgb(0, 120, 0);
+    }
+    
+    .saidaCC{
+    	background-color:rgb(127, 255, 0);
+    }
+    .suspensaoTemporaria{
+    	background-color:rgb(255, 218, 185);
+    }
+    
+    
+    
+    .encaixe{
+    	color:red;
+    	border-bottom: 1px solid black;
+    }
+
+    
 </style>
 <div 
     data-role="view" data-title="Painel de Cirurgias" data-layout="main"
@@ -15,6 +76,7 @@
             <div >
                 <a data-role="button" data-align="left" href="views/centroCirurgico/cirurgiasRealizadasGraficoView.html" data-icon="back-button"></a>
                 <span data-role="view-title" style="line-height:1.8em"></span>
+                <a data-role="button" data-align="right" onclick="showLegenda();"  >Legenda</a>
             </div>
         </div>
     </div>
@@ -35,6 +97,75 @@
             dataSource: app.painelCirurgiasViewService.viewModel.dataSourceResource}]"
         data-bind="source: dataSource, events:{dataBound: dataBound, navigate: navigate}"
         data-template="event-template"></div>	
+
+
+    <div data-role="modalview" id="modalview-legenda" style="width: 90%;">
+
+
+        <div class="btnContent">
+            <a data-role="button" onclick="closeLegenda();">Fechar</a>
+        </div>
+        <div id="modalLegenda">
+    		<div class="legenda planejada">
+    			<span>Planejada</span>
+    		</div>		              	            
+        
+    		<div class="legenda checkInCC">
+    			<span>Entrada no CC</span>
+    		</div>		 
+
+    		<div class="legenda entradaSala">
+    			<span>Entrada na Sala</span>
+    		</div>		 
+
+    		<div class="legenda inicioCirurgia">
+    			<span>Início da Cirurgia</span>
+    		</div>		 
+
+    		<div class="legenda fimCirurgia">
+    			<span>Fim da Cirurgia</span>
+    		</div>		 
+
+    		<div class="legenda saidaSala">
+    			<span>Saída da Sala</span>
+    		</div>		 
+    		
+    		
+    		<div class="legenda saidaCC">
+    			<span>Saída do CC</span>
+    		</div>		 
+
+    		<div class="legenda suspensaNoCC">
+    			<span>Suspensa no CC</span>
+    		</div>		 
+
+    		<div class="legenda suspensaForaCC">
+    			<span>Suspensa fora do CC</span>
+    		</div>		 
+
+    		<div class="legenda suspensaoTemporaria">
+    			<span>Suspensão Temporária</span>
+    		</div>		 
+    		
+    		<div class="legenda encaixe">
+    			<span>Encaixe Urgência</span>
+    			<img class="imgEmergencia" /> 
+    		</div>
+    		<div class="legenda encaixe">
+    			<span>Encaixe Internado</span>
+    			<img class="imgInternado" /> 
+    		</div>		 
+    		<div class="legenda encaixe">
+    			<span>Encaixe em casa</span>
+    			<img class="imgCasa" /> 
+    		</div>		 
+
+        </div>
+
+    
+    </div>
+
+
 </div>
 
 
@@ -66,3 +197,16 @@
                 </div>
             </div>
         </script>
+
+<script>
+       function showLegenda(){
+           console.log('show');
+           $("#modalview-legenda").data("kendoMobileModalView").open();
+       }
+
+           function closeLegenda(){
+           $("#modalview-legenda").data("kendoMobileModalView").close();
+       }
+
+    
+</script>

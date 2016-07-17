@@ -239,3 +239,20 @@ html,body{
     line-height: 20px;
     vertical-align: middle;
 }
+
+.imgEmergencia {
+    background-image: url(../styles/images/emergencia.png);
+    background-repeat: no-repeat;
+}
+
+
+.imgInternado {
+    background-image: url(../styles/images/leito16.png);
+    background-repeat: no-repeat;
+}
+
+
+.imgCasa {
+    background-image: url(../styles/images/home16.png);
+    background-repeat: no-repeat;
+}
