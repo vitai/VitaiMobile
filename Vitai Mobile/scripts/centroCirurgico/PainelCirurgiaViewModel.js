@@ -2,8 +2,9 @@
     var painelCirurgiasViewModel,
         app = global.app = global.app || {};
    
+    kendo.culture("pt-BR");
     
-        app.unidadeUrl = "http://177.153.18.165:8070/centroCirurgico";
+    //    app.unidadeUrl = "http://177.153.18.165:8070/centroCirurgico";
     
     painelCirurgiasViewModel = kendo.data.ObservableObject.extend({
         selectedDate: new Date(),
@@ -17,10 +18,7 @@
             }
              
             this.set("selectedDate", data );
-            
-            //$("#scheduler").data("kendoScheduler").date(data);
-            
-            
+                        
             app.currentViewModel = this;
             
         },        
@@ -139,30 +137,83 @@
 	
 	            for (var idx = 0, length = events.length; idx < length; idx++) {
 		              event = events[idx];
+                    
+                    if (event.pacienteNome == 'ISABELE CAROLINE SARMENTO ARAUJO'){
+                        console.log(event);
+                    }
 		
-		              eventElement = view.element.find("[data-uid=" + event.uid + "]");
-		              if (event.dataCirurgiaCancelada != "" && event.dataCirurgiaCancelada != null) {
-		              	eventElement.css("background-color", "rgb(255, 165, 0)"); //laranja
-		              	eventElement.css("color", "black");
-		              } else if (event.dataCirurgiaSaidaSala != "" && event.dataCirurgiaSaidaSala != null) {
-		              	eventElement.css("background-color", "rgb(0, 128, 0)"); //verde escuro
-		              	eventElement.css("color", "white");
+			          eventElement = view.element.find("[data-uid=" + event.uid + "]");
+		              if ((event.dataCirurgiaCancelada != "" && event.dataCirurgiaCancelada != null)  || (event.dataCancelamento != "" && event.dataCancelamento != null)) {
+			              	if (event.STATUSMAPACIRURGICOITEM == "T") {
+			            		eventElement.addClass("suspensaoTemporaria");
+			    		        eventElement.css("color", "black");
+			            	} else {
+			            		if (event.STATUSMAPACIRURGICOITEM == "C") {
+				            		if (event.DATACHECKINCC != "" && event.DATACHECKINCC != null) {
+				            			eventElement.addClass("suspensaNoCC");
+				            		} else {
+		    			            	eventElement.addClass("suspensaForaCC");
+				            		}				            		
+			            		} else {
+	    			            	eventElement.addClass("planejada");
+	    			            }
+	    			            eventElement.css("color", "black");
+			            	} 
+			          } else if (event.DATAOBITO != "" && event.DATAOBITO != null) {
+			              	eventElement.addClass("suspensaNoCC");
+			              	eventElement.css("color", "black");
+			    	  } else if (event.DATACHECKOUTCC != "" && event.DATACHECKOUTCC != null && event.dataCirurgiaCheckin != "" && event.dataCirurgiaCheckin != null) {
+			              	eventElement.addClass("saidaCC");
+			              	eventElement.css("color", "black");
+		              } else if (event.dataRPALiberacao != "" && event.dataRPALiberacao != null) {
+			              	eventElement.addClass("rpaLiberacao");
+			              	eventElement.css("color", "black");
+		              } else if (event.dataRPACheckin != "" && event.dataRPACheckin != null) {
+			              	eventElement.addClass("rpaCheckin");
+			              	eventElement.css("color", "black");
+		              } else if (event.dataCirurgiaSaidaSala != "" && event.dataCirurgiaSaidaSala != null && event.dataCirurgiaFim != "" && event.dataCirurgiaFim != null) {
+			              	eventElement.addClass("saidaSala");
+			              	eventElement.css("color", "white");
 		              } else if (event.dataCirurgiaFim != "" && event.dataCirurgiaFim != null) {
-		              	eventElement.css("background-color", "rgb(191, 255, 205)"); // verde claro
-		              	eventElement.css("color", "black");
+			              	eventElement.addClass("fimCirurgia");
+			              	eventElement.css("color", "black");
 		              } else if (event.dataCirurgiaInicio != "" && event.dataCirurgiaInicio != null) {
-		              	eventElement.css("background-color", "rgb(0, 88, 176)"); // azul escuro
-		              	eventElement.css("color", "white");
+			              	eventElement.addClass("inicioCirurgia");
+			              	eventElement.css("color", "white");
 		              } else if (event.dataCirurgiaCheckin != "" && event.dataCirurgiaCheckin != null) {
-		              	eventElement.css("background-color", "rgb(98, 176, 255)"); // azul claro
-		              	eventElement.css("color", "black");
-		              } else if (event.pedidoCirurgiaEncaixe == 'S') {
-		              	eventElement.css("background-color", "rgb(250, 252, 191)"); // amarelo
-		                eventElement.css("color", "black");
+			              	eventElement.addClass("entradaSala");
+			              	eventElement.css("color", "black");
+		              } else if (event.STATUSMAPACIRURGICOITEM == "C") { 
+			              	if (event.dataCheckinCC != "" && event.dataCheckinCC != null) {
+		            			eventElement.addClass("suspensaNoCC");
+		            		} else {
+		            			eventElement.addClass("suspensaForaCC");
+		            		}
+			    		    eventElement.css("color", "black");
 		              } else {
-		              	eventElement.css("background-color", "rgb(200, 200, 200)"); //cinza claro
-		              	eventElement.css("color", "black");
+		              		
+			              	if (event.dataCheckinCC != "" && event.dataCheckinCC != null) {
+			              		
+			              		data = event.dataCheckinCC;
+			              		novaDataItem = new Date(event.dataCheckinCC.getFullYear(), event.dataCheckinCC.getMonth(), event.dataCheckinCC.getDate(), 0, 0, 0);
+			              		console.log(data);
+			              		console.log(novaDataItem);
+			              		console.log(today);
+								if (today.getTime() != novaDataItem.getTime()) {
+		            				eventElement.addClass("planejada");
+				              		eventElement.css("color", "black");
+		            			} else {
+				              		eventElement.addClass("checkInCC");
+		            				eventElement.css("color", "white");
+		            			}
+		            		} else {
+				              	eventElement.addClass("planejada");
+				              	eventElement.css("color", "black");
+			              	}
 		              } 
+		              if (event.pedidoCirurgiaEncaixe == 'S') {
+		                	eventElement.css("color", "red");
+		              }
 	            }            
 	        }        
         

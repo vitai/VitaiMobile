@@ -208,7 +208,18 @@
                     
                 }
               }
-        })
+        }),
+        chartPlanejadaDataBound:function(e){
+            var view = e.sender.dataSource.view();
+              $("#noDataPlanejadas").toggle(false);
+            
+        },
+        chartEncaixadasDataBound:function(e){
+            var view = e.sender.dataSource.view();
+              $("#noDataEncaixadas").toggle(false);
+           
+          
+        }
              
     });
 

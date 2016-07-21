@@ -9,6 +9,23 @@
     {
         content: "\e003"
     }
+    
+    .overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        opacity: .2;
+        filter: alpha(opacity=60);
+        background-color: #6495ed;      
+        text-align: center;
+      }
+
+      .overlay div {
+        position: relative;
+        font-size: 34px;
+        margin-top: -17px;
+        top: 50%;
+      }
 
     
 </style>
@@ -76,10 +93,10 @@
                  categoryField: 'STATUS',
                  padding: 60
                  }]"
-                 data-bind="source: graficoCirurgiaPlanejadaDs",
+                 data-bind="source: graficoCirurgiaPlanejadaDs, events:{dataBound:chartPlanejadaDataBound}",
                  style="width:100%; height:300px">
-
             </div>
+            <div id="noDataPlanejadas" style="width:100%; text-align:center; display:none"><div>Não há dados disponívies</div></div> 
         </div>
         <hr />
         <div class="chart-wrapper">
@@ -92,10 +109,16 @@
                  categoryField: 'STATUS',
                  padding: 60
                  }]"
-                 data-bind="source: graficoCirurgiaEncaixadasDs",
+                 data-bind="source: graficoCirurgiaEncaixadasDs, events:{dataBound:chartEncaixadasDataBound}",
                  style="width:100%; height:300px">
 
             </div>
+            <div id="noDataEncaixadas" style="width:100%; text-align:center; display:none" >
+                <h5>Cirurgias encaixadas por status</h5>
+                <div>
+                Não há dados disponívies</div>
+               
+            </div> 
         </div>        
         
         <ul data-role="listview" data-style="inset" 
