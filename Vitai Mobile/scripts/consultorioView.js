@@ -14,6 +14,7 @@
         colorIsVisible: false,
         descricaoUnidade: "",
         logo:"",
+        idsecao:0,
         meta:"",
         onInit:function()
         {
@@ -21,14 +22,15 @@
         },        
         onViewShow: function(e)
         {
-           
+            
+           console.log( e.view.params);
             var that = this;
             that.set("colorIsVisible", false);
             this.set("logo",app.usuarioSettings.LOGO);
             that.set("risco", e.view.params.risco);
-            console.log(e.view.params.risco);
             that.set("descricaoUnidade", app.unidadeCorrente.DESCRICAO);
-            console.log(e.view.params.risco);
+            that.set("idsecao", e.view.params.idsecao);
+             that.set("tipo", "O");
             
             if (e.view.params.risco == 'VERDE')
                 this.set("meta", "Meta: 60 min");
@@ -42,7 +44,7 @@
             else  
                 that.set("consultorioPediatrico", "N");
             
-            if (e.view.params.ordem == 2 || e.view.params.ordem == 1) 
+            if (e.view.params.ordem == 2 || e.view.params.ordem == 1 || e.view.params.ordem == 8) 
                 {
                     that.set("colorIsVisible", true);
                     that.set("query", 5);
@@ -77,7 +79,8 @@
                                                 "setorId":1,
                                                 "risco": app.consultorioViewService.viewModel.risco,
                                                 "pediatrico": app.consultorioViewService.viewModel.consultorioPediatrico, 
-                                                "tipo": app.consultorioViewService.viewModel.tipo
+                                                "tipo": app.consultorioViewService.viewModel.tipo,
+                                                "secaoId": app.consultorioViewService.viewModel.idsecao
                                             };
                                                  
                                       if (app.consultorioViewService.viewModel.query == 8)
@@ -86,7 +89,8 @@
                                                 "q":app.consultorioViewService.viewModel.query,
                                                 "setorId":1,
                                                 "pediatrico": app.consultorioViewService.viewModel.consultorioPediatrico, 
-                                                "tipo": app.consultorioViewService.viewModel.tipo
+                                                "tipo": app.consultorioViewService.viewModel.tipo,
+                                                  "secaoId": app.consultorioViewService.viewModel.idsecao
                                             };
                                       console.log(param);
                                       return param;

@@ -52,7 +52,7 @@
               parse: function (response) {
                   kendo.mobile.application.hideLoading();
 				  app.graficoPercentualRedirecionamentoViewService.viewModel.set("dataAtualizacao", kendo.toString(new Date(), "G")); 
-                  console.log(response);
+                  console.log(JSON.stringify(response));
                   return response;
 
               }

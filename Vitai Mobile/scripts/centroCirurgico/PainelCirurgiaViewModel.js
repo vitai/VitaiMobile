@@ -77,8 +77,13 @@
 	        schema: {
 		        parse: function (response) {
 		        	
-		        	kendo.mobile.application.hideLoading(); 
-		            return response;
+                    kendo.mobile.application.hideLoading(); 
+                   
+                    if (response)
+		                return response;
+                    else
+                        return [];
+                    
 		            	
 		        },
 		         model: {
@@ -102,7 +107,8 @@
 		         	}
 		         	
 		         }
-	      	}
+	      	},
+               error: app.handleError 
         }),
         dataSourceResource: new kendo.data.DataSource({
     		transport: {

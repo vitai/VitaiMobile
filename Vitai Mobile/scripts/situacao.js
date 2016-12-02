@@ -4,7 +4,7 @@
     
     function handleError(e)
     {
-        console.log(e);
+        app.handleError(e);
     }
    
     SituacaoViewModel = kendo.data.ObservableObject.extend({

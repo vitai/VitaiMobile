@@ -51,6 +51,12 @@ Date.prototype.Today= function(){
         }
     }
     
+    app.handleError = function (e)
+    {
+        kendo.mobile.application.hideLoading(); 
+        console.log(e);
+    }
+    
     app.Logoff = function(){
         app.permissoes = null;
         app.usuarioSettings = [];

@@ -144,7 +144,8 @@
 <script type="text/x-kendo-template" id="situacaoConsultorioTemplate">
 
      #if(data.LINKTO && data.VALOR > 0){#
-         <a href='views/consultorioView.html?risco=#:data.DESCRICAO#&ordem=#:data.ORDEM#' data-role="list-view-link" >
+         <a href='views/consultorioView.html?risco=#:data.DESCRICAO#&ordem=#:data.ORDEM#&idsecao=#:data.CHAVE#' data-role="list-view-link" >
+        
          #if((data.DESCRICAO == 'AMARELO' && data.MEDIA > 30) || (data.DESCRICAO == 'VERDE' && data.MEDIA > 60)){#
              <div class="alerta_vermelho"></div> <div style="display:inline-block">#: data.DESCRICAO #: (TM: #: data.MEDIA # min)</div>
              <div style="display:inline-block;float:right; margin-right:20px"><b>#: data.VALOR #</b></div>    
@@ -166,7 +167,7 @@
 
 <script type="text/x-kendo-template" id="situacaoTemplate">
      #if(data.LINKTO && data.VALOR > 0){#
-         <a href='views/consultorioView.html?risco=#:data.DESCRICAO#&ordem=#:data.ORDEM#' data-role="list-view-link" >
+         <a href='views/consultorioView.html?risco=#:data.DESCRICAO#&ordem=#:data.ORDEM#&idsecao=#:data.CHAVE#' data-role="list-view-link" >
          <div style="display:inline-block">#: data.DESCRICAO #:</div> <div style="display:inline-block;float:right; margin-right:20px"><b>#: data.VALOR #</b></div>
          </a>
      #}else{#

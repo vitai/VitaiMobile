@@ -24,7 +24,7 @@ var retornoRioSaude = [{STATUS:"OK", MOSTRA_INDICADORES:true, LOGO: "logo-riosau
                                 {URL: "views/Login.html", TITULO:"SAIR"}
                                 ]
                         },
-            { UNIDADEID:4, URL:"http://upacdd.is-gone.com:8080/sits", DESCRICAO:"UPA-CIDADE DE DEUS", CODIGO:1,PAGINA_INICIAL:"views/situacao.html",
+            { UNIDADEID:4, URL:"http://187.111.110.146:8080/sits", DESCRICAO:"UPA-CIDADE DE DEUS", CODIGO:1,PAGINA_INICIAL:"views/situacao.html",
                     NAV_SETTINGS:[{URL: "views/unidadesView.html", TITULO:"Unidades"},
                                 {URL: "views/ProducaoProfissionalView.html", TITULO:"Produção Profissional"},
                                 {URL: "views/Emergencia/EmergenciaView.html", TITULO:"Emergencia"},
@@ -78,7 +78,7 @@ var retornoCVB = [{STATUS:"OK", MOSTRA_INDICADORES:false, LOGO: "logo-cvbrj", PE
     }];
 
 var retornoPCO = [{STATUS:"OK", MOSTRA_INDICADORES:false, LOGO: "", PERMISSOES:[{Permissao:"ADM"},{Permissao:"MEDICO"}], UNIDADES:[
-                { UNIDADEID:1, URL:"http://177.153.18.165:8070/centroCirurgico", DESCRICAO:"HMLJ", CODIGO:1,PAGINA_INICIAL:"views/centroCirurgico/cirurgiasRealizadasGraficoView.html",
+                { UNIDADEID:1, URL:"http://187.111.110.139:8080/centroCirurgico", DESCRICAO:"HMLJ", CODIGO:1,PAGINA_INICIAL:"views/centroCirurgico/cirurgiasRealizadasGraficoView.html",
                     NAV_SETTINGS:[{URL: "views/centroCirurgico/cirurgiasRealizadasGraficoView.html", TITULO:"Cirurgias Realizadas"},
                                 {URL: "views/centroCirurgico/PainelCirurgiaView.html", TITULO:"Painel de Cirurgias"},
                                 {URL: "views/Login.html", TITULO:"Logoff"}
@@ -86,6 +86,18 @@ var retornoPCO = [{STATUS:"OK", MOSTRA_INDICADORES:false, LOGO: "", PERMISSOES:[
                 }
         ]
     }];
+
+var retornoHMAS =[{STATUS:"OK", MOSTRA_INDICADORES:true, LOGO: "logo-riosaudedefasacivil", PERMISSOES:[{Permissao:"ADM"},{Permissao:"MEDICO"}], UNIDADES:[
+            { UNIDADEID:1, URL:"http://177.84.33.147:8181/vitai", DESCRICAO:"HMAS", CODIGO:1, PAGINA_INICIAL:"views/situacao.html",
+                    NAV_SETTINGS:[{URL: "views/unidadesView.html", TITULO:"Unidades"},
+                                {URL: "views/ProducaoProfissionalView.html", TITULO:"Produção Profissional"},
+                                {URL: "views/Emergencia/EmergenciaView.html", TITULO:"Emergencia"},
+                                {URL: "views/Login.html", TITULO:"SAIR"}
+                                ]
+            }
+        ]
+    }]; 
+
 
 var retornoHMSPA = [{STATUS:"OK", MOSTRA_INDICADORES:false, LOGO: "", PERMISSOES:[{Permissao:"ADM"},{Permissao:"MEDICO"}], UNIDADES:[
                 { UNIDADEID:1, URL:"http://hmspa.is-gone.com:8080/sits", DESCRICAO:"HMSPA", CODIGO:1,PAGINA_INICIAL:"views/situacao.html",
@@ -98,8 +110,15 @@ var retornoHMSPA = [{STATUS:"OK", MOSTRA_INDICADORES:false, LOGO: "", PERMISSOES
         ]
     }];
     
-var retornoUPASPDA = [{STATUS:"OK", MOSTRA_INDICADORES:false, LOGO: "", PERMISSOES:[{Permissao:"ADM"},{Permissao:"MEDICO"}], UNIDADES:[
+var retornoCVBRJ = [{STATUS:"OK", MOSTRA_INDICADORES:false, LOGO: "", PERMISSOES:[{Permissao:"ADM"},{Permissao:"MEDICO"}], UNIDADES:[
                 { UNIDADEID:1, URL:"http://upaspda.is-gone.com:8080/sits", DESCRICAO:"UPA-SPDA", CODIGO:1,PAGINA_INICIAL:"views/situacao.html",
+                     NAV_SETTINGS:[{URL: "views/unidadesView.html", TITULO:"Unidades"},
+                                {URL: "views/ProducaoProfissionalView.html", TITULO:"Produção Profissional"},
+                                {URL: "views/Emergencia/EmergenciaView.html", TITULO:"Emergencia"},
+                                {URL: "views/Login.html", TITULO:"SAIR"}
+                                ] 
+                },
+                { UNIDADEID:2, URL:"http://upai.is-gone.com:8080/sits", DESCRICAO:"UPA-ITABORAI", CODIGO:1,PAGINA_INICIAL:"views/situacao.html",
                      NAV_SETTINGS:[{URL: "views/unidadesView.html", TITULO:"Unidades"},
                                 {URL: "views/ProducaoProfissionalView.html", TITULO:"Produção Profissional"},
                                 {URL: "views/Emergencia/EmergenciaView.html", TITULO:"Emergencia"},
@@ -176,10 +195,17 @@ LoginModel = kendo.data.ObservableObject.extend({
             dataTemp = retornoHMSPA;    
         }
         
-        if(this.username == "upaspda" && this.password == "upaspda123")
+        if(this.username == "cvbrj" && this.password == "cvbrj123")
         {
-            dataTemp = retornoUPASPDA;    
+            dataTemp = retornoCVBRJ;    
         }
+
+        if(this.username == "hmas" && this.password == "hmas123")
+        {
+            dataTemp = retornoHMAS;    
+        }
+
+        
 
         // FIM CODIGO TEMPORARIO
         
