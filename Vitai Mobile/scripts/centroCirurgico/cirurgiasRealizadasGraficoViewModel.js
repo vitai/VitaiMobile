@@ -6,7 +6,8 @@
     
     cirurgiasRealizadasViewModel = kendo.data.ObservableObject.extend({
         selectedDate: null,
-        isGraficoVisible: false,
+        isGraficoEncaixadaVisible: false,
+        isGraficoPlanejadaVisible: false,
         qtdPlanejadas:0,
         qtdRealizada:0,
         percPlanejadaRealizada:0,
@@ -83,11 +84,13 @@
                 schema: {
                     parse: function (response) {
                          
-                        app.cirurgiasRealizadasViewService.viewModel.set("isGraficoVisible", false);
+                        app.cirurgiasRealizadasViewService.viewModel.set("isGraficoEncaixadaVisible", false);
+                        app.cirurgiasRealizadasViewService.viewModel.set("isGraficoPlanejadaVisible", false);
                         if (response && response.length > 0)
                         {
                             app.cirurgiasRealizadasViewService.viewModel.set("selectedDate", response[0].DATA);
-                            app.cirurgiasRealizadasViewService.viewModel.set("isGraficoVisible", true);
+                            app.cirurgiasRealizadasViewService.viewModel.set("isGraficoEncaixadaVisible", true);
+                            app.cirurgiasRealizadasViewService.viewModel.set("isGraficoPlanejadaVisible", true);
                             app.cirurgiasRealizadasViewService.viewModel.refresh();
                             return response;
                         }
@@ -120,11 +123,11 @@
                 schema: {
                     parse: function (response) {
                         kendo.mobile.application.hideLoading();
-                        app.cirurgiasRealizadasViewService.viewModel.set("isGraficoVisible", false);
+                        app.cirurgiasRealizadasViewService.viewModel.set("isGraficoPlanejadaVisible", false);
                         if (response && response.length > 0)
                         {
                             console.log(response);
-                            app.cirurgiasRealizadasViewService.viewModel.set("isGraficoVisible", true);
+                            app.cirurgiasRealizadasViewService.viewModel.set("isGraficoPlanejadaVisible", true);
                             //app.cirurgiasRealizadasViewService.viewModel.set("qtdPlanejadas", response[0].QTD_PLANEJADA);
                             //app.cirurgiasRealizadasViewService.viewModel.set("qtdRealizada", response[0].QTD_REALIZADA);
                             //app.cirurgiasRealizadasViewService.viewModel.set("percPlanejadaRealizada", kendo.toString(response[0].QTD_REALIZADA / response[0].QTD_PLANEJADA, "p") );
@@ -160,10 +163,10 @@
                 schema: {
                     parse: function (response) {
                         kendo.mobile.application.hideLoading();
-                        app.cirurgiasRealizadasViewService.viewModel.set("isGraficoVisible", false);
+                        app.cirurgiasRealizadasViewService.viewModel.set("isGraficoEncaixadaVisible", false);
                         if (response && response.length > 0)
                         {
-                            app.cirurgiasRealizadasViewService.viewModel.set("isGraficoVisible", true);
+                            app.cirurgiasRealizadasViewService.viewModel.set("isGraficoEncaixadaVisible", true);
                              console.log('graficoCirurgiaEncaixadasDs');
                             return response;
                         }

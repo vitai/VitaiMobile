@@ -55,6 +55,14 @@ html,body{
     width: 130px;
 }
 
+.logo-f71
+{
+    background-image: url("../styles/images/logo_f71_100.png");
+    background-repeat: no-repeat;
+    height: 76px;
+    width: 100px;
+}
+
 .logo-cvbrj
 {
     background-image: url("../styles/images/cvb.png");
@@ -243,16 +251,23 @@ html,body{
 .imgEmergencia {
     background-image: url(../styles/images/emergencia.png);
     background-repeat: no-repeat;
+    height: 16px;
+    width: 16px;
 }
 
 
 .imgInternado {
     background-image: url(../styles/images/leito16.png);
     background-repeat: no-repeat;
+    height: 16px;
+    width: 16px;
 }
 
 
 .imgCasa {
     background-image: url(../styles/images/home16.png);
     background-repeat: no-repeat;
+    height: 16px;
+    width: 16px;
 }
+

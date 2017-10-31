@@ -9,7 +9,8 @@
         titulo: "",
         descricaoUnidade: "",
         logo:"",
-        media:"",
+        media: "",
+        mostracid: "hidden",
         onInit:function()
         {
             app.currentViewModel = this;
@@ -24,15 +25,17 @@
             that.set("titulo", e.view.params.nmsecao);
             this.dataSource.transport.options.read.url = app.unidadeUrl + "/ws/relatorio";
             that.set("descricaoUnidade", app.unidadeCorrente.DESCRICAO);
+           // that.set("mostracid", app.usuarioSettings.MOSTRA_CID);
+            
             this.set("logo",app.usuarioSettings.LOGO);
             that.dataSource.read();
-            that.dataSource.read();
+            
             
         },
         dataSource: new kendo.data.DataSource({
                           transport: {
                                 read:  {
-                                  url: app.unidadeUrl + "/ws/relatorio",
+                                  //url: app.unidadeUrl + "/ws/relatorio",
                                   dataType: "json", // "jsonp" is required for cross-domain requests; use "json" for same-domain requests
                                   data: function() {
                                         var param = {
@@ -41,6 +44,7 @@
                                             "setorId": app.unidadeCorrente.CODIGO,
                                             "idSecao": app.observacaoViewService.viewModel.secao
                                         };
+									  console.log(param);
                                       return param;
                                     }
                                 }

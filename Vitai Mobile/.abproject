@@ -6,7 +6,7 @@
   "DisplayName": "Ti-Med Agile",
   "Author": "Vitai",
   "Description": "Ti-Med Agile",
-  "BundleVersion": "5.8",
+  "BundleVersion": "7.5",
   "AndroidVersionCode": "1",
   "iOSDeviceFamily": [
     "1",
@@ -14,7 +14,7 @@
   ],
   "iOSBackgroundMode": [],
   "ProjectTypeGuids": "{070BCB52-5A75-4F8C-A973-144AF0EAFCC9}",
-  "FrameworkVersion": "4.0.0",
+  "FrameworkVersion": "6.4.0",
   "AndroidPermissions": [
     "android.permission.INTERNET"
   ],

@@ -34,7 +34,7 @@
             transport: {
                     read: {
                         timeout:20000,
-                        url: "http://177.153.18.165:8281/atendimento/1.0.0/r42",
+                        url: "http://177.12.2.189:8280/atendimento/1.0.0/r42",
                         headers: {"Authorization": "Bearer 5e38280bd56b9ca25bfbdcf8ac8d1d29"},
                         dataType: "json"
                     }
